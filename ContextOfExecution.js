@@ -1,5 +1,6 @@
 //This points to the context in which the function gets called
 let a=5;
+
 function parent(){
     console.log(this)
     let b=10;
