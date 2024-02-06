@@ -1,5 +1,9 @@
-
-
+// const fs=require("fs")
+// fs.readFile("a.txt",'utf8',(err,data)=>{
+//     if(data)console.log(data)
+// })//This code will not work in browser,we get the following error but can be executed in nodejs
+//It looks like you're trying to use the fs module in a web browser environment, 
+// //which is not possible because the fs module is specific to Node.js and is not available in the browser.
 let element=document.getElementById("time")
 element.addEventListener("click",function cb(){
     setTimeout(()=>{
@@ -49,18 +53,6 @@ let startTime=new Date().getTime()
     console.log(startTime+" "+endTime)
 clearInterval(returned)//setInterval will not even gets executed,it will get cleared as this line is taken care of main thread
 
-
-// const filePath = 'a.txt';
-// let text
-// fs.readFile(filePath, 'utf8', (err, data) => {
-//     if (err) {
-//         console.error('Error reading the file:', err);
-//         return;
-//     }
-//   text=data
-//     console.log('File content:', data);
-// });//It looks like you're trying to use the fs module in a web browser environment, 
-// //which is not possible because the fs module is specific to Node.js and is not available in the browser.
 
 document.getElementById("text").innerHTML="text"
 
