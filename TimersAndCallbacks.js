@@ -146,17 +146,16 @@ function starter(){
     }
     return{turnOn,turnOff}
 }
-function sendSignal(stop){
+
+let obj=starter()
+obj.turnOff(function sendSignal(stop){
     setTimeout(()=>{
         console.log("signal sent to motor")
         document.getElementById("signal").innerHTML="signal sent to motor"
     },1000)
-    stop()
-   
+    stop() 
 }
-
-let obj=starter()
-obj.turnOff(sendSignal)
+)
 
 document.getElementById("signal").style.color="red"
 //here we no longer have control over our code 
