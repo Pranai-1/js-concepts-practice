@@ -31,3 +31,10 @@ let s=1
 // const c;  //SyntaxError: Missing initializer in const declaration
 const b=100
 // b=10  //TypeError: Assignment to constant variable.
+
+const greet = function namedGreet() {
+    console.log("Hello!");
+  };
+
+  //namedGreet(); //Uncaught ReferenceError: namedGreet is not defined
+  greet()

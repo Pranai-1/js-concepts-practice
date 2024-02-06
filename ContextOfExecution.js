@@ -36,9 +36,22 @@ let myobj={
 }
 myobj.fnc()
 
-let elements;
+// let elements; //This and below code are same
 
-document.addEventListener("DOMContentLoaded", ()=> {//arrow function
+// document.addEventListener("DOMContentLoaded", ()=> {//arrow function
+//   elements = document.getElementsByClassName("btn");
+
+//   for (let i = 0; i < elements.length; i++) {
+//     elements[i].style.color = "red";
+    
+//     // Add a click event listener to each element
+//     elements[i].addEventListener("click", function() {//anonymous normal function
+//       printHi.call(this); // Pass the clicked element as the context to printHi
+//     });
+//   }
+// });
+
+let elements;
   elements = document.getElementsByClassName("btn");
 
   for (let i = 0; i < elements.length; i++) {
@@ -49,7 +62,7 @@ document.addEventListener("DOMContentLoaded", ()=> {//arrow function
       printHi.call(this); // Pass the clicked element as the context to printHi
     });
   }
-});
+
 
 function printHi() {
   console.log(this); // Points to the element that triggered the click event
@@ -57,11 +70,11 @@ function printHi() {
 }
 
 
-document.addEventListener('DOMContentLoaded', function yo() {
+
    document.getElementById('myButton').addEventListener('click', function() {//normal function
      console.log(this); // Points to the button element
    });
- });
+ 
  
 
 let s=document.getElementsByName("Hello")//we get node list
