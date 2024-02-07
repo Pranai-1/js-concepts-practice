@@ -17,15 +17,32 @@ const users=[
 // const total=users.reduce((acc,curr)=>{
 // return acc+=curr.age//dont forget to return
 // },0)
-// users.map((user)=>{   //it is returning a new array and assigning it to users array
-//     return user.age*=2
-// })
-//  const users1=users.filter((user)=>{
-//    return  user.age%2==0
-// })
-// console.log(users)
+users.map((user)=>{   //it is returning a new array and assigning it to users array
+    return user.age*=2
+})
+ const users1=users.filter((user)=>{
+   return  user.age%2==0
+})
+// users.filter((user)=>{  //it returns a new array but it cannot assign the returned array to new array,you have to do like above
+//     return  user.age%2==0//this is not valid
+//  })
+//  console.log(users)
 //  console.log(users1)
 // console.log(total)
+
+ const newNums = []
+const numbers=[1,2,3,4,4]
+numbers.forEach((number, index, array) => {
+    array[index] = number * 2;//changing the original array,index will get updated automatically
+});
+console.log(numbers)
+numbers.forEach( (num) => {
+    if (num > 4) {
+        newNums.push(num)//adding to new array
+    }
+} )
+
+ console.log(newNums);
 
 //return an array with age as key and number of users with the same age as values
 // let obj={}
@@ -64,22 +81,18 @@ const users=[
 //  const arrayToString = numbers.join(",");
 //    console.log(arrayToString.replace(","," " )); //replaces only first occurence
 //    console.log(arrayToString.replace(/,/g, " "));//replaces all occurences
-const numbers=[1,2,3,4,4]
-numbers.forEach((number, index, array) => {
-    array[index] = number * 2;
-});
-console.log(numbers)
+//
 
 
-Array.prototype.customMethod = function() {
-    return 'Custom method';
-};
+// Array.prototype.customMethod = function() {
+//     return 'Custom method';
+// };
 
-const arr = [1, 2, 3];
+// const arr = [1, 2, 3];
 
-for (let key in arr) {
-    console.log(key); // Output: 0, 1, 2 ,custom method.To avoid the execution of this custom emthod we use for of loops
-}
-for (let val of arr) {
-    console.log(val); // Output: 1,2,3,it will not execute custom method
-}
+// for (let key in arr) {
+//     console.log(key); // Output: 0, 1, 2 ,custom method.To avoid the execution of this custom emthod we use for of loops
+// }
+// for (let val of arr) {
+//     console.log(val); // Output: 1,2,3,it will not execute custom method
+// }
