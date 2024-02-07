@@ -80,12 +80,16 @@ let singletonObj = (function() {
             return instance;
         }
     };
-});
+})();//using IIFE to make a closure
 
-// Usage
-let object = singletonObj();
-let obj1 = object.getInstance();
-let obj2 = object.getInstance();
+// Usage if i dont use a IIFE
+// let object = singletonObj();
+// let obj1 = object.getInstance();
+// let obj2 = object.getInstance();
+
+//usage for IIFE
+let obj1 = singletonObj.getInstance();
+let obj2 = singletonObj.getInstance();
 
 console.log(obj1 === obj2); // Output: true (Both objects refer to the same instance)
 
