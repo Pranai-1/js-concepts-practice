@@ -59,7 +59,19 @@
 // console.log(Math.min(4, 3, 6, 8));
 // console.log(Math.max(4, 3, 6, 8));
 
-const min = 10
-const max = 20
+// const min = 10
+// const max = 20
 
-console.log(Math.floor(Math.random() * (max - min + 1)) + min)
+// console.log(Math.floor(Math.random() * (max - min + 1)) + min)
+
+// let originalArray = [[1], [2], [3]];
+// let x=JSON.stringify(originalArray)
+// let deepCopyArray = JSON.parse(JSON.stringify(originalArray));
+
+// deepCopyArray[0].push(4);
+
+// console.log(originalArray); // Output: [[1], [2], [3]]
+// console.log(deepCopyArray); // Output: [[1, 4], [2], [3]]
+// console.log(x);
+// console.log(JSON.parse(x))
+
