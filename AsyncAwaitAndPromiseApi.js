@@ -18,6 +18,7 @@ const p3=new Promise((resolve,reject)=>{
 async function IWontWait(){
     const res1=await p1;//wait for 3 seconds
     console.log(res1)
+    document.getElementById("signal").innerText=res1
     const res2=await p2;//wait for another 3 seconds as already it waited for 3 seconds before 3+3=6
     console.log(res2)
     const res3=await p3;//wont wait for any time as it has already waited for 6 seconds.
@@ -76,3 +77,6 @@ Promise.any([p1,p2,p3])
 .catch((error)=>{
     console.log(error.errors)//check the syntax
 })
+
+document.getElementById("myButton").addEventListener("click",()=>alert("clicked"))  //alert is not a part of nodejs it is
+//in browsers,if we try to run nodejs file without linking to html,we will get error,same with document
