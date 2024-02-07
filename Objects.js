@@ -88,6 +88,7 @@ let singletonObj = (function() {
 // let obj2 = object.getInstance();
 
 //usage for IIFE
+//IIFE is used to avoid the pollution caused by global scopes
 let obj1 = singletonObj.getInstance();
 let obj2 = singletonObj.getInstance();
 
