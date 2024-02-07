@@ -17,6 +17,7 @@ const users=[
 // const total=users.reduce((acc,curr)=>{
 // return acc+=curr.age//dont forget to return
 // },0)
+
 users.map((user)=>{   //it is returning a new array and assigning it to users array
     return user.age*=2
 })
