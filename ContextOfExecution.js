@@ -69,8 +69,6 @@ function printHi() {
   console.log("hi");
 }
 
-
-
    document.getElementById('myButton').addEventListener('click', function() {//normal function
      console.log(this); // Points to the button element
    });
@@ -79,3 +77,9 @@ function printHi() {
 
 let s=document.getElementsByName("Hello")//we get node list
 console.log(s)
+
+function y(x=(arr)=>{console.log(arr)}){
+   let arr=[1,2,3,4,5]
+   x(arr)
+}
+y()
