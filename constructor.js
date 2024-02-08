@@ -25,4 +25,16 @@ Object.prototype.divide=function(){
 //  console.log(obj.constructor)
 //  console.log(str.constructor)
 //  console.log(x.constructor)
- console.log(x.divide())
+ //console.log(x.divide())
+
+ function Person(name) {
+    this.name = name;}
+  
+  const person1 = new Person("Alice");
+  person1.greet ="hi"  //same as person1[‘greet]=”hi”
+  const person2 = new Person("Bob");
+  console.log(person2)// Person { name: 'Bob' }
+  console.log(person1); // Person { name: 'Alice', greet: 'hi' }
+  delete person1.greet//deleting the property to person1 object
+  console.log(person1);// Person { name: 'Alice' }
+  
