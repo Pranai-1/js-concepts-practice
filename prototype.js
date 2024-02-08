@@ -27,8 +27,8 @@ function Person(name) {
     // console.log(person2.greet())
 
     // In JavaScript, the prototype property is typically associated with constructor functions, not instances created by those 
-    // constructor functions.To get prototype using instances,we get access using constructor property which itself refers to the
-    //  constructor function.example below
+    // constructor functions.To get prototype using instances,we can get access using constructor property which itself refers to 
+     // the constructor function.example below
    //console.log(person1.constructor.prototype)//{ greet: [Function (anonymous)] }
 
    person1.constructor.prototype.run=function(){ //This is same as Person.prototype
