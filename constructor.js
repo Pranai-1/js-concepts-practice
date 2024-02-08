@@ -26,7 +26,7 @@ Object.prototype.divide=function(){
 //  console.log(str.constructor)
 //  console.log(x.constructor)
  //console.log(x.divide())
-
+//Adding properties to a  function constructor
  function Person(name) {
     this.name = name;}
   
