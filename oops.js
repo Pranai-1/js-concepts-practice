@@ -15,20 +15,23 @@ function KG(Name)
 	this.Name=Name;
 }
 
-// Create a new object with Student.prototype as its prototype
-const kgPrototype = Object.create(Student.prototype);
-
-//KG.__proto__=kgPrototype//we are directly assigning the object of student.prototype to constructor function kg itself
-//The instances of kg cannot access the print method
-
-    var obj=new KG("Vivek");
-    //  console.log(KG.print());//Student is: undefined
-    // console.log(obj.print())//error
-//To avoidd this we need to set the  prototype of instances of the KG class to the kgPrototype object.
+const kgPrototype = Object.create(Student.prototype);//This has been done inorder to avoid direct linkage between student and kg
+//if i do KG.prototype=Student.prototype,both will points to the same place in the memory hence changes in one effects the other
     KG.prototype=kgPrototype
+    Function.prototype.greet=function(){console.log("hello")}
     let obj1=new KG("Vivek");
-    //console.log(obj1.print())//Student is: Vivek
+    console.log(obj1.print())//Student is: Vivek
+    obj1.greet()
+//cannot access greet method because
+//  In JavaScript, when you assign a new prototype to an object's prototype chain, it doesn't 
+// automatically inherit any new properties or methods added to the prototype chain after the assignment.
 
+// In your code, you're creating a new prototype object (kgPrototype) that inherits from Student.prototype 
+// and then assigning it to KG.prototype. This means that instances created using the KG constructor will inherit properties
+//  and methods from kgPrototype, which includes print().
+
+// However, when you add a new method greet() to Function.prototype, it's not available in the prototype chain of kgPrototype, 
+// and therefore, not inherited by instances created using the KG constructor.
 //Encapsulation
   class Person{
     constructor(age){
@@ -40,7 +43,7 @@ const kgPrototype = Object.create(Student.prototype);
     canMarry=function(){
         return this.age>21//this is needed
     }
-    canDance(){
+    canDance(){//recommended way to write functions inside classes,this or above one is good not arrow
         return this.age>3
     }
   }

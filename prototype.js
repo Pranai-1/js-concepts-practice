@@ -1,3 +1,4 @@
+////Dont look at this without reading Prototype and __proto__.txt file
 function Person(name) {
     this.name = name;
 }
@@ -88,13 +89,14 @@ function Person(name) {
             fullTime: true,
             __proto__: TeachingSupport
         }
-       User1.prototype=Teacher
+      // User1.prototype=Teacher//This is like adding a new property named property in user1 and assigning values in it
+      // User1["prototype"]=Teacher//This and above both are same
         User1.__proto__=Teacher
         //Teacher.__proto__ = User1 //assigning the prototype of teacher to user object check in chrome
         //not visible in nodejs
-
+         
         // modern syntax
         Object.setPrototypeOf(TeachingSupport, Teacher)
-        //console.log(User1)
+        console.log(User1)
         // console.log(TASupport)
         // console.log(TeachingSupport)
