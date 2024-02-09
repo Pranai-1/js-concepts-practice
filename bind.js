@@ -4,8 +4,8 @@ let obj={
         console.log(`${this.name} clicked`)
     }
 }
-
-document.querySelector("button").addEventListener('click', obj.say.bind(obj));//only first button element will have event listener
+let binded=obj.say.bind(obj)//returns a binded function with the reference of the obj object
+document.querySelector("button").addEventListener('click',binded );//only first button element will have event listener
 
 document.querySelectorAll(".btn").forEach(function(button) {
     button.addEventListener('click', function() {
@@ -14,3 +14,4 @@ document.querySelectorAll(".btn").forEach(function(button) {
 });
 
 document.getElementById("time").addEventListener('click', obj.say.bind(obj));//binding the function with the reference
+
