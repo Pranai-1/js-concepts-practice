@@ -32,6 +32,7 @@ const kgPrototype = Object.create(Student.prototype);//This has been done inorde
 
 // However, when you add a new method greet() to Function.prototype, it's not available in the prototype chain of kgPrototype, 
 // and therefore, not inherited by instances created using the KG constructor.
+
 //Encapsulation
   class Person{
     constructor(age){
@@ -51,7 +52,7 @@ const kgPrototype = Object.create(Student.prototype);//This has been done inorde
 //   console.log(p1.canVote())
 //   console.log(p1.canMarry())
 
- //same code using functions
+//same code using functions
 
     function Person1(age){
     this.age=age
