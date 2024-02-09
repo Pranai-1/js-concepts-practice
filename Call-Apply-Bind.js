@@ -55,3 +55,16 @@
    console.log(user2)
 
 
+//Bind check bind.js
+
+   function dummy(message) {
+    console.log(`${message}, ${this.name}`);
+   }
+
+        let person = { name: "Alice" };
+        let boundGreet = dummy.bind(person, "Hello");
+        boundGreet(); // Outputs: Hello, Alice
+
+//polyfill for bind
+
+     
