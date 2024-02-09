@@ -63,7 +63,7 @@ let multiply = function(x, y) {
 return x * y;
 };
 
-let multiplyBy2 = multiply.bind(this, 2);
+let multiplyBy2 = multiply.bind(this, 2);//This is an example of function currying as well
 //console.log(multiplyBy2)//[Function: bound multiply]
 //console.log(multiplyBy2(3)); // Outputs: 6
 
