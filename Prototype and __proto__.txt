@@ -1,9 +1,128 @@
-Every object in JavaScript has a built-in property, which is called its prototype. The prototype is itself an object, 
-so the prototype will have its own prototype, making what's called a prototype chain. The chain ends when we reach a prototype that 
-has null for its own prototype.
+     Prototypes are the mechanism by which JavaScript objects inherit features from one another.
+     All JavaScript objects inherit properties and methods from a prototype.
 
-Prototypes are the mechanism by which JavaScript objects inherit features from one another.
-All JavaScript objects inherit properties and methods from a prototype.
+    In JavaScript, objects created using object literals,string literals,Number literals (like obj = {name: "pranai"}) 
+    do not have a prototype property by default.The prototype property is typically associated with constructor functions
 
-so,If 
+    Every object  have a prototype, but it's not directly accessible via a property called "prototype". 
+    Instead, JavaScript objects have an internal link, denoted by the __proto__ property, which points to their prototype. 
+    This __proto__ property is used to establish the prototype chain, 
+    allowing objects to inherit properties and methods from their prototype.
+
+What does Prototype property contains 
+
+    The prototype of an object in JavaScript is an object itself. It contains properties and methods that are inherited by 
+    instances of objects linked tThe prototype of an object in JavaScript is an object itself. It contains properties and methods
+    that are inherited by instances of objects linked to it through the prototype chain.
+
+    When you access a property or method on an object, JavaScript first looks for that property or method directly on the object 
+    itself. If it's not found, JavaScript then looks for it in the object's prototype, and then in the prototype's prototype, 
+    and so on, until it finds the property/method or reaches the end of the prototype chain 
+    (where the prototype is null).o it through the prototype chain.
+
+Keys points to understand:-
+    1. Every object in JavaScript has a built-in property, which is called its prototype. The prototype is itself an object, 
+    so the prototype will have its own prototype, making what's called a prototype chain.The chain ends when we reach a prototype 
+    that  has null for its own prototype.
+
+Lets understand about __proto__ property:-
+    The __proto__ property initially points to the prototype of the constructor function used to create that particular literal.
+    __proto__ is an internal property that allows objects to access their prototype chain. 
+     It's more accurate to say that __proto__ points to the immediate prototype in the prototype chain, 
+     which could be the prototype of a constructor function or another object.
+
+Ex:-
+   let x=10
+   x is a Number literal,it doesn't have a prototype property but it doesn't mean that it doesn't have a prototype.
+   The prototype of x can be accessed through __proto__ property.now x.__proto__ points to the prototype property of
+   the constructor function used to create that literal,in this is case it is points to Number prototype
+
+What is Exactly present in prototype:-
+   To check the prototype of x check prototype-of-Number.png
+   x.__proto__ points to prototype of Number
+   x.__proto__==Number.prototype
+   o/p:-true
+
+Prototype Property:-
+  The prototype property is typically associated with constructor functions.When you create instances of that constructor 
+  function using the new keyword, the __proto__ property of those instances is set to this prototype property.
+
+    In JavaScript Function is the parent of all the functions that are created including Constructor functions
+    so, Number.__proto__ and String.__proto__ and all the functions __proto__ points to Function.prototype
+
+    When you access Number.__proto__, you're actually accessing the prototype of the Number constructor function itself, 
+    not the prototype of a specific number instance.
+    In JavaScript, functions are also objects, and they have a __proto__ property that points to Function.prototype, 
+    which is the prototype shared among all function objects in the language.
+    Therefore, Number.__proto__ points to Function.prototype, which contains methods like call(), apply(), etc.,
+    that are available to all function objects.
+
+    Function.__proto__ points to Object.prototype which is the parent of all,so that's why we have access to 
+    toString() for even a function
+
+Chain:-
+    x --> Number Wrapper Object (__proto__: Number.prototype) --> Number.prototype --> Object.prototype
+
+prototypal Inheritence:-
+ 
+    Prototypal inheritance is a fundamental concept in JavaScript where objects inherit properties and methods from other objects. 
+    JavaScript uses prototypal inheritance, where objects directly inherit from other objects.
+
+Here's how prototypal inheritance works:
+
+Prototype Chain:
+    Each object in JavaScript has a prototype (accessed via the __proto__ property), which points to another object. This creates a chain of objects known as the prototype chain.
+    When you try to access a property or method on an object, JavaScript looks up the prototype chain to find it.
+    If the property or method is not found on the object itself, JavaScript continues to look up the chain until it finds the property/method or reaches the end of the chain.
+
+Methods of Prototypes:-
+
+1. **`Object.prototype`**:
+   - `toString()`: Returns a string representation of the object.
+   - `hasOwnProperty(prop)`: Returns a boolean indicating whether the object has the specified property as its own property 
+   (not inherited).
+   - `valueOf()`: Returns the primitive value of the specified object.
+   - `isPrototypeOf(obj)`: Returns a boolean indicating whether the specified object is in the prototype chain of the object.
+   - `propertyIsEnumerable(prop)`: Returns a boolean indicating whether the specified property is enumerable.
+   - `toLocaleString()`: Returns a string representing the object. This method is intended to be overridden by derived objects
+    for locale-specific behavior.
+   - `toSource()`: Returns a string representing the source code of the object.
+
+2. **`Array.prototype`**:
+   - `push(element1, ..., elementN)`: Adds one or more elements to the end of an array and returns the new length of the array.
+   - `pop()`: Removes the last element from an array and returns that element.
+   - `shift()`: Removes the first element from an array and returns that element.
+   - `unshift(element1, ..., elementN)`: Adds one or more elements to the beginning of an array and returns the new length of 
+   the array.
+   - `indexOf(searchElement[, fromIndex])`: Returns the first index at which a given element can be found in the array, 
+   or -1 if it is not present.
+   - `slice(start, end)`: Returns a shallow copy of a portion of an array into a new array object.
+   - `splice(start, deleteCount, item1, item2, ...)`: Changes the contents of an array by removing or replacing existing elements 
+   and/or adding new elements in place.
+
+3. **`String.prototype`**:
+   - `charAt(index)`: Returns the character at the specified index.
+   - `concat(str1, str2, ..., strN)`: Combines the text of two or more strings and returns a new string.
+   - `indexOf(searchValue, fromIndex)`: Returns the index within the calling String object of the first occurrence of the s
+   pecified value, starting the search at fromIndex.
+   - `match(regexp)`: Returns an array containing all matches of a regular expression against a string.
+   - `replace(searchValue, replaceValue)`: Returns a new string with some or all matches of a pattern replaced by a replacement.
+   - `split(separator, limit)`: Splits a String object into an array of strings by separating the string into substrings.
+   - `toUpperCase()`: Returns the calling string value converted to uppercase.
+
+4. **`Number.prototype`**:
+   - `toExponential(fractionDigits)`: Returns a string representing the number in exponential notation.
+   - `toFixed(digits)`: Returns a string representing the number in fixed-point notation with a specified number of digits
+    after the decimal point.
+   - `toPrecision(precision)`: Returns a string representing the number with a specified precision.
+   - `toString(radix)`: Returns a string representing the specified object in the specified radix (base).
+   - `valueOf()`: Returns the primitive value of the specified object.
+
+5. **`Function.prototype`**:
+   - `apply(thisArg, argsArray)`: Calls a function with a given this value and arguments provided as an array .
+   - `bind(thisArg, ...args)`: Creates a new function that, when called, has its `this` keyword set to the provided value, 
+   with a given sequence of arguments preceding any provided when the new function is called.
+   - `call(thisArg, ...args)`: Calls a function with a given `this` value and arguments provided individually.
+   - `toString()`: Returns a string representing the source code of the function.
+
 

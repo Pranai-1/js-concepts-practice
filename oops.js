@@ -20,13 +20,8 @@ const kgPrototype = Object.create(Student.prototype);
 
 //KG.__proto__=kgPrototype//we are directly assigning the object of student.prototype to constructor function kg itself
 //The instances of kg cannot access the print method
-let x2={
-     name:"pranai",
-    hey:function(){console.log(this.name)}//if we use arrow function here it will not check for name in x2 but in the obj
-}
+
     var obj=new KG("Vivek");
-    obj.prototype=x2
-    console.log(obj.prototype.hey())
     //  console.log(KG.print());//Student is: undefined
     // console.log(obj.print())//error
 //To avoidd this we need to set the  prototype of instances of the KG class to the kgPrototype object.
