@@ -3,4 +3,5 @@ function add(x,y){
     return x+y
 }
 
-console.log(add())//NaN
+//console.log(add())//NaN
+

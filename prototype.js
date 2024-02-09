@@ -49,8 +49,11 @@ function Person(name) {
         name:"pranai"
     }
     let x=10
-
-    // console.log(obj.set())//Everything is set pranai
+//     x.prototype=obj //cannot do this
+//   console.log(x.name)
+//   x.__proto__=obj//cannot do this
+//   console.log(x.name)
+//     // console.log(obj.set())//Everything is set pranai
     // console.log(person1.set())//Everything is set Alice
     // console.log(x.set())//Everything is set undefined
 //using prototype for primitives
@@ -85,12 +88,13 @@ function Person(name) {
             fullTime: true,
             __proto__: TeachingSupport
         }
-
-        Teacher.__proto__ = User1 //assigning the prototype of teacher to user object check in chrome
+       User1.prototype=Teacher
+        User1.__proto__=Teacher
+        //Teacher.__proto__ = User1 //assigning the prototype of teacher to user object check in chrome
         //not visible in nodejs
 
         // modern syntax
         Object.setPrototypeOf(TeachingSupport, Teacher)
-        console.log(Teacher)
-        console.log(TASupport)
-        console.log(TeachingSupport)
+        //console.log(User1)
+        // console.log(TASupport)
+        // console.log(TeachingSupport)
