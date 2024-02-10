@@ -5,7 +5,7 @@ function throttle(func, delay) {
         if (!isThrottled) {
             // Execute the function immediately
             func.apply(this, args);
-            // console.log(this)
+             console.log(this)//this points to window because we added event listener to window
              console.log(args)//[Event]
              // When an event occurs and triggers the event listener, the browser automatically passes an event object to 
              //the event handler function.Thats why we can print aags
