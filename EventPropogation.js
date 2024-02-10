@@ -23,6 +23,7 @@ document.getElementById("time").addEventListener("click",(e)=>{
 //Event Capturing:-Grand parent to child
 
 document.getElementById("Interval").addEventListener("click",(e)=>{ 
+    //e.stopPropagation()//it will stops the propogation
  console.log(e)
  console.log("Interval is clicked")
 },false)
@@ -45,3 +46,5 @@ for (let i = 0; i < secondElements.length; i++) {
 //Next it will check parent,parent has set capturing to false so no execution.It reaches Interval and prints it,irrespective
 //of the boolean and then it will execute the event bubbling for those functions that haven't executed during capturing.
 //finally parent gets executed
+
+//e.stopPropagation() is used to stop the propogation for both bubbling and capturing
