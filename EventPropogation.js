@@ -48,3 +48,9 @@ for (let i = 0; i < secondElements.length; i++) {
 //finally parent gets executed
 
 //e.stopPropagation() is used to stop the propogation for both bubbling and capturing
+
+//If we dont have any event listeners for the child,capturing followed by bubbling still happens and checks for 
+//event listeners ofparents and grand parents.if there are no event lsiteners for parents and grand parents then no execution
+
+//If the useCapture parameter is set to true when adding an event listener, event capturing will occur, 
+//and event bubbling will be skipped.
