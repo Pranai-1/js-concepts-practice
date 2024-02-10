@@ -6,7 +6,7 @@ function keyup(){//when a key is released
      let timerId;
      return function(...args) {
          const context = this;
-         clearTimeout(timerId);
+         clearTimeout(timerId);//When the debounced function is called, it clears any existing timer (if present) using `clearTimeout`.
          timerId = setTimeout(() => {
              func.apply(context, args);
          }, delay);
