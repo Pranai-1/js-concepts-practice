@@ -1,5 +1,5 @@
 function keyup(){//when a key is released
-    console.log(`executed`)
+    console.log(`key is released`)
  }
  
  function debounce(func, delay) {
@@ -56,7 +56,7 @@ function debounceText(fnc,delay){
     
  }
  
- 
+
  document.getElementById("getText").addEventListener("input", getText);
  document.getElementById("getText2").addEventListener("input", getText2);
  //working:-
