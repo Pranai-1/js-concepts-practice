@@ -56,6 +56,7 @@ function debounceText(fnc,delay){
     
  }
  
+ 
  document.getElementById("getText").addEventListener("input", getText);
  document.getElementById("getText2").addEventListener("input", getText2);
  //working:-
