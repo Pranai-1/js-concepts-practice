@@ -51,3 +51,33 @@ root.render(div)//render method will override the root element with this element
 //never put packagelock file in gitignore
 
 //node modules is kind of a data base for out npm,all our packages will get stored in node modules
+
+//React is fast because,it has a virtula dom and it uses bundlers for production.bundlers are parcel,vite,web pack etc..
+//these bundlers takes care of:-
+//HMR-Hot module replacement
+//caching while development
+//compatibility with older versions
+//compression,Image optimization,super fast build algorithm
+
+//npx meaning executing that particular project
+
+//Transitive Dependency:-Transitive dependencies refer to dependencies that are required by other dependencies in a project. 
+// In other words, when you have a dependency A that depends on another dependency B, 
+// then B becomes a transitive dependency of your project.
+
+//when we are building production ready application,it needs to have alot of dependencies to perform taksk like bundling,
+//minification, caching and so many other things.These dependencies are also dependent on other dependencies.These are 
+//called transitive dependencies
+
+//we use npm run dev,it creates aserver along with it with the help of the dependencies,it minifies,it enables HMR and alot.
+
+// <script type="module" src="/src/main.jsx"></script>
+
+// In the provided script tag, specifying type="module" ensures that the browser treats the referenced script (main.jsx) as 
+// an ECMAScript module. This allows the script to take advantage of the features provided by the module system, such as 
+//encapsulation, asynchronous loading, and dependency management. It also enables the use of import and export statements 
+//for importing and exporting functionality between modules. ECMAScript modules are a standard mechanism for organizing 
+//and sharing code in JavaScript applications.
+
+//npx create react app uses web pack along with babel
+//tree shaking is done by bundlers which means removing unwanted code

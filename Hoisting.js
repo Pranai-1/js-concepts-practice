@@ -38,3 +38,17 @@ const greet = function namedGreet() {
 
   //namedGreet(); //Uncaught ReferenceError: namedGreet is not defined
   greet()
+
+  const arrow=()=>(
+    
+    console.log("arrow")
+  )
+  const arrow1=()=>{
+    let obj={
+        name:"pranai",
+        age:23
+    }
+    console.log({...obj})//destructuring
+  }
+  arrow()
+  arrow1()
