@@ -40,7 +40,7 @@ function deleteChilds(parent){
 }
 function performAppend(){
     const parent=document.querySelector(".add-recommended")
-    deleteChilds(parent)
+    deleteChilds(parent)//delete the already present nodes
     console.log(recommendations)
     let count=0
     recommendations.map((rec)=>{
