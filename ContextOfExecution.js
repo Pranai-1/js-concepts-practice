@@ -52,7 +52,7 @@ myobj.fnc()
 // });
 
 let elements;
-  elements = document.getElementsByClassName("btn");
+  elements = document.getElementsByClassName("btn");//we will get HTML collection not an array
 
   for (let i = 0; i < elements.length; i++) {
     elements[i].style.color = "red";
