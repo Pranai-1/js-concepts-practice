@@ -1,7 +1,6 @@
 const root=ReactDOM.createRoot(document.getElementById("react"))//ReactDom is responsible for all dom operations
 //be careful while creating root because,react will override all the elements which are present in that root with the element
 //you give in root.render() function
-
 const heading1=React.createElement(
     "h1",
     {
