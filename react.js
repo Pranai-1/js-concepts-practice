@@ -41,17 +41,17 @@ console.log(div)//react element is a plain java script object
 
 root.render(div)//render method will override the root element with this element 
 
-//npm is used to manage all the packages,our react cannot be built by just injecting react.
-//^ is this caret and ~ this is tilda,we use these in front of versions because if there are any updates to those versions in 
+//npm is used to manage all the packages,our project cannot be built by just injecting react.
+//^  this is caret and ~ this is tilda,we use these in front of versions because if there are any updates to those versions in 
 //future,they will get updated.auto upgarding of version nothing else.
 
 //we define our dependencies in package.json,they will auto upgrade if we use caret or tilda but to lock the versions for 
 //production,we need to lock the packages,these locked packages are present in package lock.json
 //never put packagelock file in gitignore
 
-//node modules is kind of a data base for out npm,all our packages will get stored in node modules
+//node modules is kind of a data base for our npm,all our packages will get stored in node modules
 
-//React is fast because,it has a virtula dom and it uses bundlers for production.bundlers are parcel,vite,web pack etc..
+//React is fast because,it has a virtual dom and it uses bundlers for production.bundlers are parcel,vite,web pack etc..
 //these bundlers takes care of:-
 //HMR-Hot module replacement
 //caching while development
@@ -64,11 +64,11 @@ root.render(div)//render method will override the root element with this element
 // In other words, when you have a dependency A that depends on another dependency B, 
 // then B becomes a transitive dependency of your project.
 
-//when we are building production ready application,it needs to have alot of dependencies to perform taksk like bundling,
+//when we are building production ready application,it needs to have alot of dependencies to perform tasks like bundling,
 //minification, caching and so many other things.These dependencies are also dependent on other dependencies.These are 
 //called transitive dependencies
 
-//we use npm run dev,it creates aserver along with it with the help of the dependencies,it minifies,it enables HMR and alot.
+//we use npm run dev,it creates a server along with it with the help of the dependencies,it minifies,it enables HMR and alot.
 
 // <script type="module" src="/src/main.jsx"></script>
 
@@ -78,5 +78,5 @@ root.render(div)//render method will override the root element with this element
 //for importing and exporting functionality between modules. ECMAScript modules are a standard mechanism for organizing 
 //and sharing code in JavaScript applications.
 
-//npx create react app uses web pack along with babel
+//npx create react app uses web pack as a bundler and a transpiler named babel
 //tree shaking is done by bundlers which means removing unwanted code
