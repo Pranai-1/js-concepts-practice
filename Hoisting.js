@@ -28,7 +28,6 @@ let s=1
 // const b  //SyntaxError: Missing initializer in const declaration
 // b=100
 
-// const c;  //SyntaxError: Missing initializer in const declaration
 const b=100
 // b=10  //TypeError: Assignment to constant variable.
 
