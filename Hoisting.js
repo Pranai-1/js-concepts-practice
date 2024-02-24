@@ -5,8 +5,8 @@ console.log(sayHi)
 console.log(x)//gets undefined
 //fnc()//if we declare fnc with var and try to call here,we get TypeError as fnc is not a function
 //if we declare fnc with let and try to call here,then we get a reference error as Cannot access 'fnc' before initialization
-var x=10;
-let y=20;
+// var x=10;
+// let y=20;
 function sayHi(){
     setTimeout(()=>{
        console.log("Inside setTimeout")
@@ -22,7 +22,7 @@ fnc()
 var q=5;
 var q=10//This is possible with var
 
-let s=1
+// let s=1
 //let s=10//will get syntax error as s has already been declared
 
 // const b  //SyntaxError: Missing initializer in const declaration
@@ -51,3 +51,6 @@ const greet = function namedGreet() {
   }
   arrow()
   arrow1()
+
+  let scriptScope="I am in script scope"
+  var globalScope="I am in global scope"

@@ -4,8 +4,11 @@ if(true)true
 
 //Block Scope:- Blockscope means what are all the variables and functions that can be accessed inside this block
 
-// if you declare a variable with let outside any block or function, it will have a scope limited to the script or module in which it is 
-// declared (not global).
+// if you declare a variable with let outside any block or function, it will have a scope limited to the script or module in 
+//which it is declared (not global).
+
+// console.log(globalScope)//both are accessible but scriptScope is not present in window object
+// console.log(scriptScope)
 
 var c=100
 let a=10;
@@ -30,7 +33,7 @@ var y=10
 {
     //console.log(z)//ReferenceError: Cannot access 'x' before initialization
     let z=100//Illegal shadowing
-//var x=10//This is SyntaxError: Identifier 'x' has already been declared,because var has function scope sp this x is now part of 
+//var x=10//This is SyntaxError: Identifier 'x' has already been declared,because var has function scope so this x is now part of 
 //global scope where as above x is present in script scope,both points to same memory location so we cannot do this.
 //this is illegal shadowing
 //we cannot re-declare let  in same scope of memory
