@@ -41,7 +41,7 @@ normal()//This will gets executed first
 //after the inclusion of the above waiting function,the thread will not print anything for 10 seconds,after 10 seconds
 //all the promises will gets printed because all of them would have resolved within this waiting time
 
-//Promise API
+//Promise API:-all expects array inside as parameter
 
 Promise.all([p1,p2,p3])
 .then((result)=>{

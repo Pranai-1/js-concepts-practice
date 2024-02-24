@@ -22,8 +22,9 @@
         });
  return x;
 }
+console.log(usingFetch())//Promise {<pending>}
 usingFetch()
-    .then(result => {
+    .then(result => {//The .then() method is used to handle the result of a Promise when it successfully resolves.
         console.log("Fetch result:", result);
     })
     .catch(error => {
