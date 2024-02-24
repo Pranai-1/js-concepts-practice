@@ -51,3 +51,11 @@
 p{
     color: brown;
 }
+
+.forms{
+    background-color: azure;
+    padding: 5px;
+    margin: 20px;
+    border-radius: 5px;
+    width: 600px;
+}
