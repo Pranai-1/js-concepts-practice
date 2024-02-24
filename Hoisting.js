@@ -3,8 +3,8 @@
 sayHi()
 console.log(sayHi)
 console.log(x)//gets undefined
-//fnc()//if we declare fnc with var we get TypeError as fnc is not a function
-//if we declare fnc with let,then we get a reference error as Cannot access 'fnc' before initialization
+//fnc()//if we declare fnc with var and try to call here,we get TypeError as fnc is not a function
+//if we declare fnc with let and try to call here,then we get a reference error as Cannot access 'fnc' before initialization
 var x=10;
 let y=20;
 function sayHi(){
@@ -14,7 +14,7 @@ function sayHi(){
     console.log("hi")
 }
 
-let fnc=()=>{
+var fnc=()=>{
     console.log("inside arrow function")
 }
 fnc()
