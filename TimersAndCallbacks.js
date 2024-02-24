@@ -3,7 +3,7 @@
 //     if(data)console.log(data)
 // })//This code will not work in browser,we get the following error but can be executed in nodejs
 //It looks like you're trying to use the fs module in a web browser environment, 
-// //which is not possible because the fs module is specific to Node.js and is not available in the browser.
+// which is not possible because the fs module is specific to Node.js and is not available in the browser.
 let element=document.getElementById("time")
 element.addEventListener("click",function cb(){
     setTimeout(()=>{
