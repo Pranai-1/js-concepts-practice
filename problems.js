@@ -79,3 +79,4 @@ let obj4 = {
     }
 }
 obj4.fnc();
+localStorage.getItem("x")
