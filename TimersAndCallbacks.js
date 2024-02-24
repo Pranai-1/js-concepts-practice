@@ -57,7 +57,7 @@ clearInterval(returned)//setInterval will not even gets executed,it will get cle
 document.getElementById("text").innerHTML="text"
 
 //callback hell:-consider a starter and motor,when i hit the off button in the starter the starter send the signal to the motor 
-//to the motor to tirn off and then starter displays turned off message and it disables the off button working
+// to turn off and then starter displays turned off message and it disables the off button working
 
 //This is the basic example,in this we didn't pass a function as callback,check the below one for callbacks
 
@@ -110,7 +110,7 @@ document.getElementById("text").innerHTML="text"
 // let obj=starter()
 // obj.turnOff()
 
-// document.getElementById("signal").style.color="red"
+document.getElementById("signal").style.color="red"
 
 function starter(){
     function turnOn(){
@@ -158,7 +158,5 @@ obj.turnOff(function sendSignal(stop){
 )
 
 document.getElementById("signal").style.color="red"
-//here we no longer have control over our code 
-//callback hell and inversion of control are the disadvantages of using callbacks
 //here we no longer have control over our code 
 //callback hell and inversion of control are the disadvantages of using callbacks
