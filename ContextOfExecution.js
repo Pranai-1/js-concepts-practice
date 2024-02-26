@@ -28,6 +28,7 @@ const parentObject1 = parent1();
 parentObject1.child1();  //this inside child points to {child1: ƒ}
 
 
+
 let myobj={
    fnc:function child(){
       console.log(this) //here this points to {fnc: ƒ}
