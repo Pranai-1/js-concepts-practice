@@ -53,16 +53,16 @@ myobj.fnc()
 // });
 
 let elements;
-  elements = document.getElementsByClassName("btn");//we will get HTML collection not an array
+//   elements = document.getElementsByClassName("btn");//we will get HTML collection not an array
 
-  for (let i = 0; i < elements.length; i++) {
-    elements[i].style.color = "red";
+//   for (let i = 0; i < elements.length; i++) {
+//     elements[i].style.color = "red";
     
-    // Add a click event listener to each element
-    elements[i].addEventListener("click", function() {//anonymous normal function
-      printHi.call(this); // Pass the clicked element as the context to printHi
-    });
-  }
+//     // Add a click event listener to each element
+//     elements[i].addEventListener("click", function() {//anonymous normal function
+//       printHi.call(this); // Pass the clicked element as the context to printHi
+//     });
+//   }
 
 
 function printHi() {
@@ -70,17 +70,17 @@ function printHi() {
   console.log("hi");
 }
 
-   document.getElementById('myButton').addEventListener('click', function() {//normal function
-     console.log(this); // Points to the button element
-   });
+   // document.getElementById('myButton').addEventListener('click', function() {//normal function
+   //   console.log(this); // Points to the button element
+   // });
  
  
 
-let s=document.getElementsByName("Hello")//we get node list
-console.log(s)
+// let s=document.getElementsByName("Hello")//we get node list
+// console.log(s)
 
-function y(x=(arr)=>{console.log(arr)}){
-   let arr=[1,2,3,4,5]
-   x(arr)
-}
-y()
+// function y(x=(arr)=>{console.log(arr)}){
+//    let arr=[1,2,3,4,5]
+//    x(arr)
+// }
+// y()
