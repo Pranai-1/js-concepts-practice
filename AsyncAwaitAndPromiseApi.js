@@ -80,3 +80,10 @@ Promise.any([p1,p2,p3])
 
 document.getElementById("myButton").addEventListener("click",()=>alert("clicked"))  //alert is not a part of nodejs it is
 //in browsers,if we try to run nodejs file without linking to html,we will get error,same with document
+
+//alert("hello World"); is valid JavaScript.
+// However, a ECMAScript validator will probably tell you it is not valid, because alert() is not part of the ECMAScript, 
+//but a typically feature of JavaScript for Browsers. There are many features of JavaScript, which make only sense in a browser '
+//environment, f.i. window.navigator, window.document, WebSocket, navigator.geolocation. Some would even say, this is not part 
+//of JavaScript, but part of HTML5, which is not true, because HTML5 is just the markup language. However, these fancy new 
+//features are often called HTML5, even though they are implemented in JavaScript.
