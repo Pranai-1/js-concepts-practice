@@ -33,12 +33,12 @@ function Counter(){
 //For every new function call it creates a new clouser with the count variable along with increment and decrement functions
 let obj=Counter()
 let obj1=Counter()
-obj.increment()
-obj.decrement()
-obj.increment()
-obj.increment()
-obj1.increment()
-obj1.decrement()
+// obj.increment()
+// obj.decrement()
+// obj.increment()
+// obj.increment()
+// obj1.increment()
+// obj1.decrement()
 
 
 function Counter1(){
@@ -55,9 +55,10 @@ let count=0;
 }
 
 let newObj=new Counter1()  //Example using constructor
-newObj.increment()
-newObj.increment()
-newObj.decrement()
+console.log(newObj)
+// newObj.increment()
+// newObj.increment()
+// newObj.decrement()
 
 //Alternate to above(using without this)
 function Counter2() {
@@ -78,9 +79,14 @@ function Counter2() {
       console.log(count);
   };
 
-  return {
+  return {//we have to return if we dont use this keyword,here we are explicitly returning the object without binding this
       increment,
       decrement,
       x
   };
 }
+let newObj2=new Counter2()  
+console.log(newObj2)
+newObj2.increment()
+newObj2.increment()
+newObj2.decrement()
