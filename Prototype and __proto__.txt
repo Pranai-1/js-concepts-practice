@@ -1,7 +1,7 @@
      Prototypes are the mechanism by which JavaScript objects inherit features from one another.
      All JavaScript objects inherit properties and methods from a prototype.
 
-    In JavaScript, objects created using object literals,string literals,Number literals (like obj = {name: "pranai"}) 
+    In JavaScript, variables created using object literals,string literals,Number literals (like obj = {name: "pranai"}) 
     do not have a prototype property by default.The prototype property is typically associated with constructor functions
 
     Every object  have a prototype, but it's not directly accessible via a property called "prototype". 
@@ -11,14 +11,13 @@
 
 What does Prototype property contains 
 
-    The prototype of an object in JavaScript is an object itself. It contains properties and methods that are inherited by 
-    instances of objects linked tThe prototype of an object in JavaScript is an object itself. It contains properties and methods
+    The prototype of an object in JavaScript is an object itself. It contains properties and methods
     that are inherited by instances of objects linked to it through the prototype chain.
 
     When you access a property or method on an object, JavaScript first looks for that property or method directly on the object 
     itself. If it's not found, JavaScript then looks for it in the object's prototype, and then in the prototype's prototype, 
     and so on, until it finds the property/method or reaches the end of the prototype chain 
-    (where the prototype is null).o it through the prototype chain.
+    (where the prototype is null) through the prototype chain.
 
 Keys points to understand:-
     1. Every object in JavaScript has a built-in property, which is called its prototype. The prototype is itself an object, 
@@ -57,8 +56,13 @@ Prototype Property:-
     Therefore, Number.__proto__ points to Function.prototype, which contains methods like call(), apply(), etc.,
     that are available to all function objects.
 
-    Function.__proto__ points to Object.prototype which is the parent of all,so that's why we have access to 
-    toString() for even a function
+    Number.prototype refers to the prototype object associated with instances of the Number constructor.
+    Number.__proto__ refers to the prototype object associated with the Number constructor function itself.
+    Function.prototype is the prototype object associated with instances created by the Function constructor, 
+    containing properties and methods that are inherited by all functions.
+    Function.__proto__ is the prototype object of the Function constructor itself, pointing to Function.prototype
+
+    Function.__proto__==Function.prototype && Number.__proto__==Function.__proto__  //true
 
 Chain:-
     x --> Number Wrapper Object (__proto__: Number.prototype) --> Number.prototype --> Object.prototype
@@ -71,9 +75,11 @@ prototypal Inheritence:-
 Here's how prototypal inheritance works:
 
 Prototype Chain:
-    Each object in JavaScript has a prototype (accessed via the __proto__ property), which points to another object. This creates a chain of objects known as the prototype chain.
+    Each object in JavaScript has a prototype (accessed via the __proto__ property), which points to another object. This creates a
+     chain of objects known as the prototype chain.
     When you try to access a property or method on an object, JavaScript looks up the prototype chain to find it.
-    If the property or method is not found on the object itself, JavaScript continues to look up the chain until it finds the property/method or reaches the end of the chain.
+    If the property or method is not found on the object itself, JavaScript continues to look up the chain until it finds the 
+    property/method or reaches the end of the chain.
 
 Methods of Prototypes:-
 

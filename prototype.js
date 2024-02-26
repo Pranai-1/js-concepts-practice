@@ -1,8 +1,8 @@
-////Dont look at this without reading Prototype and __proto__.txt file
+//Dont look at this without reading Prototype and __proto__.txt file
 function Person(name) {
     this.name = name;
 }
-//person is a function which is also a object because it is created using new leyword interally.so it has a prototype property
+//person is a function which is also a object because it is created using new keyword interally.so it has a prototype property
     //console.log(Person.prototype)//this will have access to all the default methods that are existing 
     //console.log(Person.prototype.toString())//[object Object] it has given some output but not a error because of method in parent
     //console.log(Person.prototype.prototype)//we get undefined because Object is the top of heirarchy and it has no prototype
@@ -54,7 +54,7 @@ function Person(name) {
 //   console.log(x.name)
 //   x.__proto__=obj//cannot do this
 //   console.log(x.name)
-//     // console.log(obj.set())//Everything is set pranai
+//     console.log(obj.set())//Everything is set pranai
     // console.log(person1.set())//Everything is set Alice
     // console.log(x.set())//Everything is set undefined
 //using prototype for primitives
