@@ -10,7 +10,7 @@ let obj={
     },
     [mySym]:23//passing symbol as a key,it must be in square brackets
 }
-
+//In JavaScript, enumerable properties are properties of an object that can be iterated over using a loop,
 // The Object.keys, Object.values, and Object.entries methods only return the enumerable properties of an object.
 //  By default, symbols are non-enumerable, which means they won't appear in the result when using these methods.
 

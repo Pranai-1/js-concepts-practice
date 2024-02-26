@@ -31,19 +31,19 @@ users.map((user)=>{   //it is returning a new array and assigning it to users ar
 //  console.log(users1)
 // console.log(total)
 
- const newNums = []
-const numbers=[1,2,3,4,4]
-numbers.forEach((number, index, array) => {
-    array[index] = number * 2;//changing the original array,index will get updated automatically
-});
-console.log(numbers)
-numbers.forEach( (num) => {
-    if (num > 4) {
-        newNums.push(num)//adding to new array
-    }
-} )
+//  const newNums = []
+// const numbers=[1,2,3,4,4]
+// numbers.forEach((number, index, array) => {
+//     array[index] = number * 2;//changing the original array,index will get updated automatically
+// });
+// console.log(numbers)
+// numbers.forEach( (num) => {
+//     if (num > 4) {
+//         newNums.push(num)//adding to new array
+//     }
+// } )
 
- console.log(newNums);
+//  console.log(newNums);
 
 //return an array with age as key and number of users with the same age as values
 // let obj={}
@@ -78,11 +78,11 @@ numbers.forEach( (num) => {
 // console.log(output)
 
 
-// const numbers = [1,2,3,4,5];
-//  const arrayToString = numbers.join(",");
-//    console.log(arrayToString.replace(","," " )); //replaces only first occurence
-//    console.log(arrayToString.replace(/,/g, " "));//replaces all occurences
-//
+const numbers = [1,2,3,4,5];
+ const arrayToString = numbers.join(",");
+   console.log(arrayToString.replace(","," " )); //replaces only first occurence
+   console.log(arrayToString.replace(/,/g, " "));//replaces all occurences
+
 
 
 // Array.prototype.customMethod = function() {
