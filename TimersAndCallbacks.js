@@ -56,6 +56,15 @@ clearInterval(returned)//setInterval will not even gets executed,it will get cle
 
 document.getElementById("text").innerHTML="text"
 
+// In JavaScript, callback functions are commonly used in asynchronous operations to handle the result of an asynchronous task once 
+// it's completed.when multiple asynchronous tasks are nested within each other, the code structure becomes deeply nested. 
+
+//It occurs because in JavaScript the only way to delay a computation so that it runs after the asynchronous call returns is to 
+//put the delayed code inside a callback function.
+// You cannot delay code that was written in traditional synchronous style so you end up with nested callbacks everywhere.
+
+
+//check stacloverflow and freecodecamp
 //callback hell:-consider a starter and motor,when i hit the off button in the starter the starter send the signal to the motor 
 // to turn off and then starter displays turned off message and it disables the off button working
 
@@ -122,33 +131,21 @@ function starter(){
             document.getElementById("signal").innerHTML="turned off"
             console.log("turned off")
         },5000)
-        sendSignal(function stop(){
-            setTimeout(()=>{
-                document.getElementById("signal").innerHTML="motor stopped working"
-                console.log("motor stopped working")
-            },2000)
-            
-        })
-        display(function disable(){
-            setTimeout(()=>{
-                document.getElementById("signal").innerHTML="disable the off functionality"
-               console.log("disable the off functionality")
-            },4000)
-            
-        })
-        function display(disable){
-            setTimeout(()=>{
-                document.getElementById("signal").innerHTML="motor turned off successfully"
-                console.log("motor turned off successfully")
-            },3000)
-            disable()
-        }
+        sendSignal()
+   
     }
     return{turnOn,turnOff}
 }
 
 let obj=starter()
-obj.turnOff(function sendSignal(stop){
+obj.turnOff(function sendSignal(stop=()=>{
+                                    setTimeout(()=>{
+                                        document.getElementById("signal").innerHTML="motor stopped working"
+                                        console.log("motor stopped working")
+                                    },2000)
+                                    
+                                })
+{
     setTimeout(()=>{
         console.log("signal sent to motor")
         document.getElementById("signal").innerHTML="signal sent to motor"
@@ -160,3 +157,17 @@ obj.turnOff(function sendSignal(stop){
 document.getElementById("signal").style.color="red"
 //here we no longer have control over our code 
 //callback hell and inversion of control are the disadvantages of using callbacks
+// display(function disable(){
+//     setTimeout(()=>{
+//         document.getElementById("signal").innerHTML="disable the off functionality"
+//        console.log("disable the off functionality")
+//     },4000)
+    
+// })
+// function display(disable){
+//     setTimeout(()=>{
+//         document.getElementById("signal").innerHTML="motor turned off successfully"
+//         console.log("motor turned off successfully")
+//     },3000)
+//     disable()
+// }
