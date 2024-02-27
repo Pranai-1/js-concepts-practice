@@ -68,106 +68,98 @@ document.getElementById("text").innerHTML="text"
 //callback hell:-consider a starter and motor,when i hit the off button in the starter the starter send the signal to the motor 
 // to turn off and then starter displays turned off message and it disables the off button working
 
-//This is the basic example,in this we didn't pass a function as callback,check the below one for callbacks
+let msg1="signal sent to motor"
+let msg2="motor stopped working"
+let msg3="motor turned off successfully"
+let msg4="disable the off functionality"
 
-// function starter(){
-//     function turnOn(){
-//         document.getElementById("signal").innerHTML="turned on"
-//         console.log("turned on")
-//     }
-//     function turnOff(){
-//         function sendSignal(){
-//             setTimeout(()=>{
-//                 console.log("signal sent to motor")
-//                 document.getElementById("signal").innerHTML="signal sent to motor"
-//             },1000)
-            
-//             function stop(){
-//                 setTimeout(()=>{
-//                     document.getElementById("signal").innerHTML="motor stopped working"
-//                     console.log("motor stopped working")
-//                 },2000)
-                
-//                 function display(){
-//                     setTimeout(()=>{
-//                         document.getElementById("signal").innerHTML="motor turned off successfully"
-//                         console.log("motor turned off successfully")
-//                     },3000)
-                    
-//                     function disable(){
-//                         setTimeout(()=>{
-//                             document.getElementById("signal").innerHTML="disable the off functionality"
-//                            console.log("disable the off functionality")
-//                         },4000)
-                        
-//                     }
-//                     disable()
-//                 }
-//                 display()
-//             }
-//             stop()
-//         }
-//         sendSignal()
-//         setTimeout(()=>{
-//             document.getElementById("signal").innerHTML="turned off"
-//             console.log("turned off")
-//         },5000)
-       
-//     }
-//     return{turnOn,turnOff}
-// }
-// let obj=starter()
-// obj.turnOff()
+function sendSignal(data,callback){
+    setTimeout(()=>{
+        console.log(data)
+        document.getElementById("signal").innerHTML=data
+        callback()
+    },1000)
+}
 
-document.getElementById("signal").style.color="red"
+function stop(data,callback){
+    setTimeout(()=>{
+        document.getElementById("signal").innerHTML=data
+        console.log(data)
+        callback()
+    },1000)
+}
+
+function display(data,callback){
+    setTimeout(()=>{
+        document.getElementById("signal").innerHTML=data
+        console.log(data)
+        callback()
+    },1000)
+}
+
+function disable(data,callback){
+        document.getElementById("signal").innerHTML=data
+       console.log(data)
+       callback()
+
+}
 
 function starter(){
     function turnOn(){
         document.getElementById("signal").innerHTML="turned on"
         console.log("turned on")
     }
-    function turnOff(sendSignal){
-        setTimeout(()=>{
-            document.getElementById("signal").innerHTML="turned off"
-            console.log("turned off")
-        },5000)
-        sendSignal()
-   
+
+    function turnOff(){     
+            sendSignal(msg1,()=>{
+                        stop(msg2,()=>{
+                            display(msg3,()=>{
+                                disable(msg4,()=>{
+                                    setTimeout(()=>{
+                                        document.getElementById("signal").innerHTML="turned off"
+                                        console.log("turned off")
+                                    },2000)
+                                })
+                            })
+                        })
+            })
     }
     return{turnOn,turnOff}
 }
-
 let obj=starter()
-obj.turnOff(function sendSignal(stop=()=>{
-                                    setTimeout(()=>{
-                                        document.getElementById("signal").innerHTML="motor stopped working"
-                                        console.log("motor stopped working")
-                                    },2000)
-                                    
-                                })
-{
-    setTimeout(()=>{
-        console.log("signal sent to motor")
-        document.getElementById("signal").innerHTML="signal sent to motor"
-    },1000)
-    stop() 
-}
-)
+obj.turnOff()
 
 document.getElementById("signal").style.color="red"
+
 //here we no longer have control over our code 
 //callback hell and inversion of control are the disadvantages of using callbacks
-// display(function disable(){
-//     setTimeout(()=>{
-//         document.getElementById("signal").innerHTML="disable the off functionality"
-//        console.log("disable the off functionality")
-//     },4000)
-    
-// })
-// function display(disable){
-//     setTimeout(()=>{
-//         document.getElementById("signal").innerHTML="motor turned off successfully"
-//         console.log("motor turned off successfully")
-//     },3000)
-//     disable()
+//If we want to call a function after the completion of a potentially long running task then we need to pass the function 
+//as a callback to that function
+
+// function starterWithoutHell(){
+//     function turnOn(){
+//         document.getElementById("signal").innerHTML="turned on"
+//         console.log("turned on")
+//     }
+
+//    async function turnOff(){     
+//     try {
+//         await sendSignal(msg1);
+//         await stop(msg2);
+//         await display(msg3);
+//         await disable(msg4);
+
+//         setTimeout(() => {
+//             document.getElementById("signal").innerHTML = "turned off";
+//             console.log("turned off");
+//         }, 5000);
+//     } catch (error) {
+//         console.error("An error occurred:", error);
+//     }
+       
+//     }
+//     return{turnOn,turnOff}
 // }
+
+// let controlledObj=starterWithoutHell()
+// controlledObj.turnOff()

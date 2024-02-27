@@ -57,54 +57,92 @@ usingAsync1()
 .catch((error)=>{console.log(error.message)});
 
 //Promise Chaining
-
-function starter(){
-  function turnOn(){
-      document.getElementById("signal").innerHTML="turned on"
-      console.log("turned on")
-  }
-  function turnOff(){
-     let promise=new Promise((resolve,reject)=>{
-      setTimeout(()=>{
-          resolve("Signal sent to motor")
-      },1000)
-     })
-     return promise
-  }
-  return{turnOn,turnOff}
-}
-
-let obj=starter()
-obj.turnOff().then((data)=>{
-  document.getElementById("signal").innerHTML=data
-  console.log(data)
-  return data
-})
-.then((data)=>{
-  return stop(data)
-})
-.then((data)=>{
-  document.getElementById("signal").innerHTML=data
-  console.log(data)
-  return data
-})
-.catch((error)=>{
-  console.log(error.message)
-})
-
-async function stop(data){
-  let res=await new Promise((resolve, reject) => {
-      if(data=="Signal sent to motor"){
-      setTimeout(()=>{
-          resolve("motor stopped working")
-      },1000)
-  }else{
-      reject("can't stop")
-  }
-  })
-  return res
-}
 document.getElementById("signal").style.color="red"
+const signal= document.getElementById("signal")
+function sendSignal(data) {
+  return new Promise((resolve, reject) => {
+      setTimeout(() => {
+          console.log(data);
+          signal.innerHTML = data;
+          resolve();
+      }, 1000);
+  });
+}
+
+function stop(data) {
+  return new Promise((resolve, reject) => {
+      setTimeout(() => {
+          console.log(data);
+          signal.innerHTML = data;
+          resolve();
+      }, 1000);
+  });
+}
+
+function display(data) {
+  return new Promise((resolve, reject) => {
+      setTimeout(() => {
+          console.log(data);
+          signal.innerHTML = data;
+          resolve();
+      }, 1000);
+  });
+}
+
+function disable(data) {
+  return new Promise((resolve, reject) => {
+      setTimeout(() => {
+          console.log(data);
+          signal.innerHTML = data;
+          resolve();
+      }, 1000);
+  });
+}
+
+function starter() {
+  function turnOn() {
+    signal.innerHTML = "turned on";
+      console.log("turned on");
+  }
+
+   function turnOff() {
+      try {
+           sendSignal(msg1)
+           .then(()=>{
+            return stop(msg2);
+           })
+           .then(()=>{
+            return display(msg3);
+           })
+           .then(()=>{
+            return disable(msg4);
+           })
+           .then(()=>{
+            new Promise((resolve) =>{
+              setTimeout(()=>{
+                resolve()
+                signal.innerHTML = "turned off";
+                console.log("turned off");
+              },3000)
+            } ); // Wait for 2 seconds
+           })
+          
+      } catch (error) {
+          console.error("An error occurred:", error);
+      }
+  }
+
+  return { turnOn, turnOff };
+}
+
+const msg1 = "signal sent to motor";
+const msg2 = "motor stopped working";
+const msg3 = "motor turned off successfully";
+const msg4 = "disable the off functionality";
+
+const obj = starter();
+obj.turnOff();
+
 
 //stopping main thread
 async function check(){
