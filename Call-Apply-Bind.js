@@ -60,12 +60,13 @@ function User1(username,age){
 //bind returns a function
 
 let multiply = function(x, y) { 
+    console.log(this)
 return x * y;
 };
 
 let multiplyBy2 = multiply.bind(this, 2);//This is an example of function currying as well
-//console.log(multiplyBy2)//[Function: bound multiply]
-//console.log(multiplyBy2(3)); // Outputs: 6
+console.log(multiplyBy2)//[Function: bound multiply]
+console.log(multiplyBy2(3)); // Outputs: 6
 
 // multiply.bind(this, 2): This part creates a new function that is a copy of the multiply function, 
 // with its this value set to the first argument (this) and the first parameter (x) set to 2. 
@@ -79,7 +80,7 @@ let multiplyBy2 = multiply.bind(this, 2);//This is an example of function curryi
 //It is like writing custom bind functionality
 
 //what does bind do:-
-//1.It takes arguments,first argument is the context reference and foloowed by next arguments
+//1.It takes arguments,first argument is the context reference and followed by next arguments
 //2.It returns a function
 //3.Bind is accessible for all functions
 
@@ -115,16 +116,17 @@ let fnx=getDetails.bind(obj,"hyderabad")//passing obj as reference,the second ar
  Function.prototype.polyfillForDetails=function(...args){//multiple arguments
     let fnc=this
     let objRef=args[0]//first argument contains the reference in which it should be executed
+    console.log(objRef===fnc)
     let sliced=args.slice(1)
     return function(...par){
      return fnc.apply(objRef,[...sliced,...par])//multiple parameters
     }
 }
 
-let polfnc=getDetails.bind(obj,"hyderabad")
-polfnc("moosapet")//Details are pranai 23 hyderabad moosapet
-let polfnc1=getDetails.bind(obj,"hyderabad","grp")
-polfnc1()//Details are pranai 23 hyderabad grp
+// let polfnc=getDetails.bind(obj,"hyderabad")
+// polfnc("moosapet")//Details are pranai 23 hyderabad moosapet
+// let polfnc1=getDetails.bind(obj,"hyderabad","grp")
+// polfnc1()//Details are pranai 23 hyderabad grp
 
-let polfnc2=getDetails.bind(obj)
-polfnc2("hyderabad","grp")//Details are pranai 23 hyderabad grp
+// let polfnc2=getDetails.bind(obj)
+// polfnc2("hyderabad","grp")//Details are pranai 23 hyderabad grp
