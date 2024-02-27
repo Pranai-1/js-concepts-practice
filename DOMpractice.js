@@ -1,3 +1,8 @@
+const body=document.querySelector("body")
+console.log(body.childNodes)//gives allthe nodes including comment and empty space.empty space as text node
+console.log(body.children)//gives child elements which are 2.first is div tag and second is script tag
+console.log(body.childElementCount)//2
+
 document.getElementById("text").innerHTML="<h1>I replaced the p element</h1>"
 document.getElementById("signal").innerHTML="I replaced the text"
 const div=  document.getElementById("third")
