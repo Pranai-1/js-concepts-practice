@@ -7,22 +7,38 @@ const p1=new Promise((resolve,reject)=>{
 const p2=new Promise((resolve,reject)=>{
     setTimeout(()=>{
    resolve("second success")
-    },6000)
+    },5000)
 })
 
 const p3=new Promise((resolve,reject)=>{
     setTimeout(()=>{
    resolve("third success")
-    },3000)
+    },9000)
 })
 async function IWontWait(){
+
+    let start=new Date().getTime()
+    let end=start
     const res1=await p1;//wait for 3 seconds
+
+    //execution starts after 3 seconds
+    end=new Date().getTime()
+    console.log(end-start)
+    let x=0;
+    //This will take 2.5 seconds of time
+   for(let i=0;i<5000000000;i++){
+    x+=i;
+   }
+   end=new Date().getTime()
+   console.log(end-start)//total difference is 5.5 secs
+   console.log(x+" "+(end-start))
+
     console.log(res1)
     document.getElementById("signal").innerText=res1
-    const res2=await p2;//wait for another 3 seconds as already it waited for 3 seconds before 3+3=6
-    console.log(res2)
-    const res3=await p3;//wont wait for any time as it has already waited for 6 seconds.
-    console.log(res3)//This promise had already been resolved as js engine suspended the task for 6 seconds
+    const res2=await p2;//wont wait because it has already waited for 5.5 secs and it should have got resolved in 5 seconds
+    console.log(res2)//This promise had already been resolved as js engine suspended the task for 5.5 seconds
+    const res3=await p3;//will wait for 4 more seconds.
+    console.log(res3)
 }
 function normal(){
     console.log("I am in normal function")
@@ -78,7 +94,7 @@ Promise.any([p1,p2,p3])
     console.log(error.errors)//check the syntax
 })
 
-document.getElementById("myButton").addEventListener("click",()=>alert("clicked"))  //alert is not a part of nodejs it is
+//document.getElementById("myButton").addEventListener("click",()=>alert("clicked"))  //alert is not a part of nodejs it is
 //in browsers,if we try to run nodejs file without linking to html,we will get error,same with document
 
 //alert("hello World"); is valid JavaScript.

@@ -44,7 +44,10 @@
 }
 #first {
     background-color:gray;
-    height: 100vh
+    height: auto;
+    padding: 10px;
+
+    
    
 }
 

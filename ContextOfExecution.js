@@ -58,7 +58,7 @@ let elements;
 //   for (let i = 0; i < elements.length; i++) {
 //     elements[i].style.color = "red";
     
-//     // Add a click event listener to each element
+//      Add a click event listener to each element
 //     elements[i].addEventListener("click", function() {//anonymous normal function
 //       printHi.call(this); // Pass the clicked element as the context to printHi
 //     });

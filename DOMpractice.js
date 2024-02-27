@@ -1,6 +1,13 @@
-
-
+//DOM is a representation of our web document as objects in a tree like structure
+//DOM itself is an object which can be accessed using document 
+console.log(document)
+let obj=document['body']
+console.log(obj)
+console.log(obj['childNodes'])
 const body=document.querySelector("body")
+console.log(typeof body)//object
+console.log(body['childNodes'])//accessing the childnodes
+console.log(body['children'])//accessing the child elements
 console.log(body.childNodes)//gives allthe nodes including comment and empty space.empty space as text node
 console.log(body.children)//gives child elements which are 2.first is div tag and second is script tag
 console.log(body.childElementCount)//2
@@ -80,3 +87,6 @@ console.log(taskDiv.children)
    if(e.target.tagName=="P")
    e.target.remove()
   })
+
+
+  console.dir(document.getElementById('third'));
