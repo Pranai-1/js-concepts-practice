@@ -1,3 +1,5 @@
+
+
 const body=document.querySelector("body")
 console.log(body.childNodes)//gives allthe nodes including comment and empty space.empty space as text node
 console.log(body.children)//gives child elements which are 2.first is div tag and second is script tag
@@ -23,9 +25,11 @@ div.style.background="red"
     //text that has been hidden but present in DOM
 
    const htmlCollection=document.getElementsByClassName("second")//This will give a html collection not an array
+  // htmlCollection.forEach((ele)=>ele.style.backgroundColor="red") foreach is not present in html collection
    console.log(htmlCollection)
    const arr=Array.from(htmlCollection)//converting html collection into array
    console.log(arr)
+   arr.forEach((ele)=>ele.style.background="white")
 
    //Query selector:-These are same like selectors in css
    const x=document.querySelector(".second")//it will select an element with class name as second
@@ -57,14 +61,16 @@ div.style.background="red"
 console.log(taskDiv.children)
 
    //deleting tasks
-  let deleteTask= document.querySelector(".task4")
+  let deleteTask= document.querySelector(".task1")
   console.log(deleteTask.parentElement)//div.tasks
   deleteTask.remove()
 
   //editing tasks
 
   let editTask=document.querySelector(".task3")
-  const taskToReplace = document.createElement('p');
+  editTask.innerHTML="Eating replaced using innnerhtml"
+
+  const taskToReplace = document.createElement('p');//replacing the node itself
   let textToReplace=document.createTextNode("Eating")
   taskToReplace.appendChild(textToReplace);
   editTask.replaceWith(taskToReplace)
