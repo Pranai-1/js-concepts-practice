@@ -105,7 +105,7 @@ function starter() {
       console.log("turned on");
   }
 
-   function turnOff() {
+   async function turnOff() {
       try {
            sendSignal(msg1)
            .then(()=>{
@@ -125,11 +125,17 @@ function starter() {
                 console.log("turned off");
               },3000)
             } ); // Wait for 2 seconds
+           
            })
           
       } catch (error) {
           console.error("An error occurred:", error);
       }
+      await new Promise((resolve)=>setTimeout(()=>{
+        console.log("resolved")
+        resolve()
+      },6000))
+      console.log("waited untill resolves")
   }
 
   return { turnOn, turnOff };
