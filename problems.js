@@ -92,4 +92,13 @@ function noWait(){
 }
 wait()
 noWait()
-//This means that after wait() function synchronous operations are finished it will be removed from the stack
+//This means that after wait() function synchronous operations are finished it will be removed from the stack\
+
+function a(){
+    console.log(b.y)
+    function b(){
+        let y=100
+    }
+}
+
+a()
