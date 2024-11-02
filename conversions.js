@@ -1,10 +1,10 @@
 let x1=0;
 let a=0;
-for(let i=0;i<5;++i){
-    let y=++x1//x will get incremented before assigning to y
-    let z=a++//a will get incremented after assigning to z
-    console.log(y+" "+z)
-}
+// for(let i=0;i<5;++i){
+//     let y=++x1//x will get incremented before assigning to y
+//     let z=a++//a will get incremented after assigning to z
+//     console.log(y+" "+z)
+// }
 
 console.log(null > 0);
 console.log(null == 0);

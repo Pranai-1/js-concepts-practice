@@ -97,3 +97,30 @@ const numbers = [1,2,3,4,5];
 // for (let val of arr) {
 //     console.log(val); // Output: 1,2,3,it will not execute custom method
 // }
+
+function customReduce(array, callback, initialValue) {
+  // Check if the array is empty and no initialValue is provided
+  if (array.length === 0 && !initialValue) {
+    throw new TypeError('Reduce of empty array with no initial value');
+  }
+
+  let accumulator = initialValue !== undefined ? initialValue : array[0];
+  let startIndex = initialValue !== undefined ? 0 : 1;
+
+  for (let i = startIndex; i < array.length; i++) {
+    accumulator = callback(accumulator, array[i]);
+  }
+
+  return accumulator;
+}
+
+// Example usage:
+const numbers2 = [1, 2, 3, 4, 5];
+
+// Sum of elements using custom reduce function
+const sum = customReduce(numbers2, (accumulator, currentValue) => accumulator + currentValue, 0);
+console.log(sum); // Output: 15
+
+// Concatenation of elements using custom reduce function
+const concatenatedString = customReduce(['a', 'b', 'c'], (accumulator, currentValue) => accumulator + currentValue, '');
+console.log(concatenatedString); // Output: 'abc'

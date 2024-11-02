@@ -21,7 +21,7 @@
 //    })
 
 
-//Event Capturing:-Grand parent to child
+// Event Capturing:-Grand parent to child
 
 document.getElementById("Interval").addEventListener("click",(e)=>{ 
     //e.stopPropagation()//it will stops the propogation

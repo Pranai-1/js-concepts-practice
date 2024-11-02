@@ -34,7 +34,7 @@ async function IWontWait(){
    console.log(x+" "+(end-start))
 
     console.log(res1)
-    document.getElementById("signal").innerText=res1
+   // document.getElementById("signal").innerText=res1
     const res2=await p2;//wont wait because it has already waited for 5.5 secs and it should have got resolved in 5 seconds
     console.log(res2)//This promise had already been resolved as js engine suspended the task for 5.5 seconds
     const res3=await p3;//will wait for 4 more seconds.

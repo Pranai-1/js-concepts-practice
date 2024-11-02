@@ -6,7 +6,8 @@ let greet={
 
 let obj={
     name:"pranai",
-    age:23
+    age:23,
+    city:"mumbai"
 }
 let obj1={
     name:"john"
@@ -26,18 +27,19 @@ let obj1={
 // In this case, the surrounding lexical context is the global scope, because arrow functions do not have their own this context.
 
 function SetUsername(username){
+    console.log(this)//User { age: 23 }
     this.username=username
     console.log(`called ${this.username}`)
 }
 function User(username,age){
     this.age=age;
     SetUsername.call(this,username)//we are invoking the setusername function with the specified context
-    //if we dont pass the reference this inside setusername refers to global object
+    //if we dont pass the reference, this inside setusername refers to global object or something else based on strict mode
     console.log(this)// 'this' refers to the instance of User
 }
 
-//let user1=new User("pranai",23)
-//console.log(user1)
+let user1=new User("pranai",23)
+console.log(user1)
 
 //Apply with same example
 
@@ -65,8 +67,8 @@ return x * y;
 };
 
 let multiplyBy2 = multiply.bind(this, 2);//This is an example of function currying as well
-console.log(multiplyBy2)//[Function: bound multiply]
-console.log(multiplyBy2(3)); // Outputs: 6
+// console.log(multiplyBy2)//[Function: bound multiply]
+// console.log(multiplyBy2(3)); // Outputs: 6
 
 // multiply.bind(this, 2): This part creates a new function that is a copy of the multiply function, 
 // with its this value set to the first argument (this) and the first parameter (x) set to 2. 
@@ -104,7 +106,8 @@ let multi2=multiply.polyfillForMultiply(2)
 
 //using bind
 function getDetails(city,area){
-    console.log(`Details are ${this.name} ${this.age} ${city} ${area}`)
+    console.log(`Details are ${this.name} ${this.age} ${city} ${area}`)//observe that there is no this for the variables that is 
+    //received as arguments
 }
 
 let fnx=getDetails.bind(obj,"hyderabad")//passing obj as reference,the second argument here becomes the first parameter
@@ -113,15 +116,49 @@ let fnx=getDetails.bind(obj,"hyderabad")//passing obj as reference,the second ar
 
  //Acheiving this functionality with function.prototype
 
- Function.prototype.polyfillForDetails=function(...args){//multiple arguments
+Function.prototype.CustomGetDetails=function(...args){
     let fnc=this
-    let objRef=args[0]//first argument contains the reference in which it should be executed
-    console.log(objRef===fnc)
-    let sliced=args.slice(1)
-    return function(...par){
-     return fnc.apply(objRef,[...sliced,...par])//multiple parameters
+    let context=args[0]
+    console.log(context)
+    console.log(fnc)
+    let arr=args.slice(1)
+    return function(...args){
+        let array=[...arr,args]
+        return fnc.call(context,...array)
     }
 }
+
+console.log("hello")
+let polyfill=getDetails.CustomGetDetails(obj,"hyderabad")
+console.log(polyfill("moosapet"))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  Function.prototype.polyfillForDetails=function(...args){//multiple arguments
+//     let fnc=this
+//     let objRef=args[0]//first argument contains the reference in which it should be executed
+//     console.log(objRef===fnc)
+//     let sliced=args.slice(1)
+//     return function(...par){
+//      return fnc.apply(objRef,[...sliced,...par])//multiple parameters
+//     }
+// }
 
 // let polfnc=getDetails.bind(obj,"hyderabad")
 // polfnc("moosapet")//Details are pranai 23 hyderabad moosapet

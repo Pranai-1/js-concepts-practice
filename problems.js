@@ -94,11 +94,26 @@ wait()
 noWait()
 //This means that after wait() function synchronous operations are finished it will be removed from the stack\
 
-function a(){
-    console.log(b.y)
-    function b(){
-        let y=100
-    }
+// function a(){
+//     console.log(b.y)
+//     function b(){
+//         let y=100
+//     }
+// }
+
+// a()
+
+async function x(){
+    console.log("before")
+    let ans=await new Promise((resolve)=>resolve(0))
+    console.log("Helloo")//This is will gets printed after inside y 
+    console.log("after"+ ans)
+   
 }
 
-a()
+ function y(){
+    console.log("inside y")
+}
+
+x()
+y()

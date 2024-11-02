@@ -34,13 +34,21 @@ let singleObj=Object.create({
         home:"hyderabad"
     }
 })
+console.log(singleObj)//output:-{}
+//Object.create(), but those properties are not directly on singleObj. When you log singleObj to the console, you see an empty 
+//object because the properties are not part of the own properties of singleObj.
+//However, you can still access the properties of singleObj through prototypal inheritance. That's why you can access name and 
+//address.home properties using dot notation. They are present on the prototype chain of singleObj
+
+
+// /Object.create() does not create a shallow copy of an object. Instead, it creates a new object with the specified prototype 
+//object and optionally additional properties.
 //    - `singleObj` is created using `Object.create()`.
 //    - The first argument passed to `Object.create()` is the prototype object for the new object being created.
 //    - In this case, the prototype object contains properties `name` and `address` with initial values.
 //    - However, `Object.create()` does not directly define properties and values like object literals. Instead, 
 //    it creates a new object with the specified prototype object.
-//    - When a shallow copy of `singleObj` is made, it will also point to the same memory location for the `address` property, 
-//    just like in the object literal case.
+//    - 
 
 let newObj = { ...obj }; // Create a shallow copy using object spread
 newObj.name="reddy"

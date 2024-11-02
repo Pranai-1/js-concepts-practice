@@ -2,11 +2,12 @@ function User(name,age){
    this.name=name;
    this.age=age;
     this.check=function voteCheck(){
-    return age>=18
+    return this.age>=18
    } 
 }
 
 const obj1=new User("pranai",23)
+console.log(obj1.check())
 const obj2=new User("kid",6)
 // console.log(obj1)//User { name: 'pranai', age: 23, check: [Function: voteCheck] }
 // console.log(obj1.check())
@@ -51,17 +52,17 @@ Object.prototype.divide=function(){
   const instance=new parent("pranai",23)
  console.log(instance.getDetails())
 
- class ButtonHandler {
-   constructor() {
-       this.button = document.getElementById("classEventHandler");
-       this.button.addEventListener('click', this.handleClick.bind(this));//no need of explicit binding if handleCLick is an arrow function
-   }
+//  class ButtonHandler {
+//    constructor() {
+//        this.button = document.getElementById("classEventHandler");
+//        this.button.addEventListener('click', this.handleClick.bind(this));//no need of explicit binding if handleCLick is an arrow function
+//    }
 
-   handleClick() {
-       console.log("Button clicked!");
-       // You can add more functionality here
-   }
-}
+//    handleClick() {
+//        console.log("Button clicked!");
+//        // You can add more functionality here
+//    }
+// }
 
-// Instantiate the ButtonHandler class
-const buttonHandler = new ButtonHandler();
+// // Instantiate the ButtonHandler class
+// const buttonHandler = new ButtonHandler();
