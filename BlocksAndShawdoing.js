@@ -68,8 +68,14 @@ console.log(mySymbol === anotherSymbol); // Outputs: false (symbols are unique)
 
 // Symbols can be used as property keys
 const obj = {
-  [mySymbol]: 'Symbol as a property key'
+  [mySymbol]: 'Symbol as a property key',
+  y:"hello"
 };
+
+for(let key in obj) console.log(key) //works for objects also,it will ierate through the keys in case of objects
+
+for(let key of obj) console.log(key)  //works for iterable objects like array,string only
+
 
 console.log(obj); // Outputs: {Symbol(This is a symbol): 'Symbol as a property key'}
 

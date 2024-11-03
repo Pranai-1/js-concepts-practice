@@ -161,5 +161,7 @@ document.getElementById("signal").style.color="red"
 //     return{turnOn,turnOff}
 // }
 
+
+
 // let controlledObj=starterWithoutHell()
 // controlledObj.turnOff()

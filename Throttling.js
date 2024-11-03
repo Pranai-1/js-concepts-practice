@@ -40,6 +40,7 @@ const throttledHandleResize = throttle(handleResize, 5000); // Throttle resize h
 window.addEventListener("resize", throttledHandleResize);
 
 
+
 // throttling says function call should be executed if the time gap betweenfunction call and the current time is 5000ms 
 // to execute the next function call
 

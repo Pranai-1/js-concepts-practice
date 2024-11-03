@@ -54,3 +54,6 @@ const greet = function namedGreet() {
 
   let scriptScope="I am in script scope"
   var globalScope="I am in global scope"
+
+
+  

@@ -64,22 +64,24 @@ console.log(newObj)
 function Counter2() {
   let count = 0;
 
-  const increment = () => {
-      count++;
-      console.log(count);
+  const increment = function(){
+    console.log(this.count,this)
+    this.count++;
+      console.log(this.count);
   };
 
-  const decrement = () => {
+  const decrement =function() {
       count--;
       console.log(count);
   };
 
-  const x = () => { 
+  const x = function() { 
       count *= 2;
       console.log(count);
   };
 
   return {//we have to return if we dont use this keyword,here we are explicitly returning the object without binding this
+    //all the functions are forming a clouse with count variable,if we use this.count in any of the functions we will get 0
       increment,
       decrement,
       x
@@ -90,3 +92,4 @@ console.log(newObj2)
 newObj2.increment()
 newObj2.increment()
 newObj2.decrement()
+

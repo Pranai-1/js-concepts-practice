@@ -5,26 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
      <link rel="stylesheet" href="index.css" />
+     
 </head>
 <body>
  <div id="first">
     <h1 id="x" name="Hello">Hello</h1>
+
+    <!-- This below code is for context of execution -->
     <button  id="myButton">hit me</button>
     <button class="btn" >click me</button>
     <button class="btn">press me</button>
     <button class="btn" >alert me</button>
     <button class="btn" >control me</button>
     <button id="classEventHandler" >classEventHandler</button>
+
+    <!-- The below code is for timersandCallback.js   Eventpropogation-->
     <p>Timers</p>
     <div class="second">
     <button  id="time">Time me</button>
     <button  id="Interval">Interval me</button>
     </div>    
+
+<!-- Promises -->
     <p id="text"></p>
     <p id="signal"></p>
+
+    <!-- Debouncing EventDelegation -->
     <div id="third" class="input">
-    <input type="text" id="text1" data-uppercase="capital" onkeyup="keyup()"/>
-    <input type="text" id="myInput" data-lowercase="small"/>
+    <input type="text" id="text1" data-uppercase="capital" onkeyup="keyup()" placeholder="Capital"/>
+    <input type="text" id="myInput" data-lowercase="small" placeholder="smaller"/>
     <input type="text" id="getText" placeholder="show text"/>
     <input type="text" id="getText2" placeholder="show text"/>
    
@@ -52,6 +61,8 @@
     <p></p>
     <input type="submit"/>
 </form>
+<label for="birthdate">Birthdate:</label>
+<input type="date" id="birthdate" name="birthdate"><br>
 </div>
     <!-- <script src="ContextOfExecution.js"></script> -->
     <!-- <script src="Hoisting.js"></script> -->
@@ -60,11 +71,11 @@
     <!-- <script src="TimersAndCallbacks.js"></script> -->
     <!-- <script src="Promises.js"></script> -->
     <!-- <script src="AsyncAwaitAndPromiseApi.js"></script> -->
-    <script src="Debouncing.js"></script>
+    <!-- <script src="Debouncing.js"></script> -->
     <!-- <script src="Throttling.js"></script> -->
     <!-- <script src="EventPropogation.js"></script> -->
     <!-- <script src="EventDelegation.js"></script> -->
-    <!-- <script src="DOMpractice.js"></script> -->
+    <script src="DOMpractice.js"></script>
     <!-- <script src="searchbar.js"></script> -->
     <!-- <script src="constructor.js"></script> -->
     <!-- <script src="Assignments.js"></script> -->

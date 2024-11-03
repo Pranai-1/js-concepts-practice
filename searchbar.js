@@ -57,3 +57,5 @@ const element=document.querySelector(".search-bar")
 element.addEventListener("keyup",fetchData)
 
 
+
+

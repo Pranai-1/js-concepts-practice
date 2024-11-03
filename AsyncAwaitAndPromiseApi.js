@@ -94,6 +94,8 @@ Promise.any([p1,p2,p3])
     console.log(error.errors)//check the syntax
 })
 
+
+
 //document.getElementById("myButton").addEventListener("click",()=>alert("clicked"))  //alert is not a part of nodejs it is
 //in browsers,if we try to run nodejs file without linking to html,we will get error,same with document
 

@@ -117,3 +117,38 @@ async function x(){
 
 x()
 y()
+
+
+
+//     async function x(){
+//     console.log("before")
+//     let ans=setInterval(()=>{console.log("Inside timer")},1000)
+//     console.log("Helloo")//This is will gets printed before inside y 
+//     console.log("after"+ans)
+   
+// }
+
+//  function y(){
+//      clearInterval(ans)
+//     console.log("inside y")
+// }
+
+// x()
+// y()
+
+// let ans
+//     async function x(){
+//     console.log("before")
+//      ans=setInterval(()=>{console.log("Inside timer")},1000)
+//     console.log("Helloo")//This is will not gets printed as interval got cleared
+//     console.log("after")
+   
+// }
+
+//  function y(){
+//      clearInterval(ans)
+//     console.log("inside y")
+// }
+
+// x()
+// y()

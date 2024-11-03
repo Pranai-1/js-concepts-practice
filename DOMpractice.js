@@ -1,5 +1,7 @@
 //DOM is a representation of our web document as objects in a tree like structure
 //DOM itself is an object which can be accessed using document 
+
+
 console.log(document)
 let obj=document['body']
 console.log(obj)
@@ -12,7 +14,7 @@ console.log(body.childNodes)//gives allthe nodes including comment and empty spa
 console.log(body.children)//gives child elements which are 2.first is div tag and second is script tag
 console.log(body.childElementCount)//2
 
-document.getElementById("text").innerHTML="<h1>I replaced the p element</h1>"
+document.getElementById("text").innerHTML="<h1>I inserted a heading tag</h1>"
 document.getElementById("signal").innerHTML="I replaced the text"
 const div=  document.getElementById("third")
 div.getAttribute("class")//input
@@ -78,6 +80,7 @@ console.log(taskDiv.children)
   editTask.innerHTML="Eating replaced using innnerhtml"
 
   const taskToReplace = document.createElement('p');//replacing the node itself
+  taskToReplace.setAttribute("class",".task3")
   let textToReplace=document.createTextNode("Eating")
   taskToReplace.appendChild(textToReplace);
   editTask.replaceWith(taskToReplace)
@@ -88,5 +91,6 @@ console.log(taskDiv.children)
    e.target.remove()
   })
 
+  console.log(document.getElementById("birthdate").value)
 
   console.dir(document.getElementById('third'));

@@ -1,7 +1,7 @@
 //Event bubbling:-child-grand parent
 
 // document.getElementById("time").addEventListener("click",(e)=>{
-//    // e.stopPropagation()//it will stops the propogation
+    //e.stopPropagation()//it will stops the propogation
 //  console.log(e)
 //  console.log("time is clicked")
 // })
