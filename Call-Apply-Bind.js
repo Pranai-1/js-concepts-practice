@@ -128,6 +128,7 @@ Function.prototype.CustomGetDetails=function(...args){
     }
 }
 
+
 console.log("hello")
 let polyfill=getDetails.CustomGetDetails(obj,"hyderabad")
 console.log(polyfill("moosapet"))
@@ -167,3 +168,81 @@ console.log(polyfill("moosapet"))
 
 // let polfnc2=getDetails.bind(obj)
 // polfnc2("hyderabad","grp")//Details are pranai 23 hyderabad grp
+
+
+
+Function.prototype.polyfillForBind=function(...args){//has to be regular function
+   let context=args[0];
+   let functionToCall=this
+   let params=args.slice(1)
+   return new function(...args1){
+       params=[...params,...args1]
+     return functionToCall.call(context,...params)
+   }
+}
+
+
+
+
+
+Function.prototype.polyFillForCall=function(...args){
+   const context=args[0];
+   let params=args.slice(1)
+   const uniqueKey = Symbol(); // Symbol to avoid naming conflicts
+   context[uniqueKey] = this; // Temporarily assign `this` (the function) to `context`
+ 
+   const result = context[uniqueKey](...params); // Call the function with `context` as `this`
+   delete context[uniqueKey]; // Clean up the temporary property
+ 
+   return result; // Return the result of the function call
+}
+
+let x1=[1,2,3,4,5]
+
+x1.map((ele,index,arre)=>{console.log(arre)
+    return ele*2
+})//here arre is nothing but the original array x1,both points to same memmory,it will be chnages throughout the iteration.once 
+//iteration completes it will create a new array.
+
+x1.reduce((acc,curr)=>{acc+=curr
+    return acc
+},0)
+
+Object.prototype.customMap=function(...args){
+    let callBackFunc=args[0]
+    let array=this
+    if(typeof callBackFunc!=='function' || !array || array.length==0)
+        return
+
+    let newArr=[]
+    for(let i=0;i<array.length;i++){
+       newArr.push(callBackFunc(array[i],i,array))
+    }
+    return newArr
+}
+
+
+
+Object.prototype.customReduce=function(...args){
+    let callBackFunc=args[0]
+    let array=this
+    let intialValue, start
+
+    if(typeof callBackFunc!=='function' || !array || array.length==0)
+        return
+
+    if(!args[1]){
+        intialValue=array[0]
+        start=1
+    }else{
+        intialValue=args[1]
+        start=0
+    }
+   
+ 
+    let newArr=[]
+    for(let i=start;i<array.length;i++){
+       intialValue=callBackFunc(intialValue,array[i],i,array)
+    }
+    return intialValue
+}

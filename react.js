@@ -12,6 +12,7 @@ const heading1=React.createElement(
     },
     "Created by react"
     )
+    
 const heading=React.createElement(
     "h1",
     {

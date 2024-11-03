@@ -44,7 +44,7 @@ console.log(str.slice(1, 4));// Output: "ell"
 console.log(str.slice(-1, -4)); // Output: ""
 console.log(str.slice(-6, -1)); // Output: "world" (slicing from end)
 console.log(str.slice(-6, 0))//output:""
-//for negative it is (end,start)
+//for negative it is (end,start) from the back
 
 
 const fruits = ["apple", "banana", "cherry"];
@@ -58,6 +58,7 @@ console.log(Math.ceil(4.2));//gives the next value
 console.log(Math.floor(4.9));//give the same value
 console.log(Math.min(4, 3, 6, 8));
 console.log(Math.max(4, 3, 6, 8));
+
 
 const min = 10
 const max = 20

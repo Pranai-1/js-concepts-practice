@@ -39,6 +39,7 @@ const data = {
     hobbies: ["Reading", "Hiking", "Photography"]
 };
 
+
 function deStructure(data,mainKey,output){
 const keys=Object.keys(data)
 for(let key of keys){
