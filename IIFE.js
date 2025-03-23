@@ -1,7 +1,7 @@
 // /console.log(iife)//error
 
 const mod = require('./moduleExports2');
-console.log("Imported module:", mod);
+console.log("Imported module:", mod);//way of importing this has nothing to do with module.exports file
 
 //In a Node.js module, this, exports, and module.exports initially all point to the same object: {}.
 // /When you reassign module.exports = { name: "pranai" }, you are replacing the object entirely.
@@ -36,7 +36,7 @@ console.log("inside iife1")
 
 (function iife2(){
     
-    console.log(this)
+    console.log(this)//this points to global object containing methods like timeouts,fetch etc...
 console.log("inside iife2")
 })();
 
@@ -44,11 +44,27 @@ console.log("inside iife2")
 const obj={
     x:10,
     y:()=>{
-      console.log(this)
+      console.log(this)//arrow functions take lexical this so here this points to module.exports file
     } 
 }
+
 obj.y()
-// module.exports=obj
+// module.exports=obj  //here we are trying to replace the existing object,now this,exports points to same obj
+//but module.exports points to different object due to the change
+
+const obj2={
+    x:10,
+    y:function(){
+       const innerArrow=()=>{
+        console.log("inner y")
+            console.log(this);//arrow functions take lexical this, so here this points to this of function which is obj2
+         }
+         innerArrow()
+    }
+}
+
+obj2.y()
+
 module.exports.name="pranai"
 console.log(this,exports,module.exports)
 console.log(this==module.exports)//here it is false because we have changed module.exports
