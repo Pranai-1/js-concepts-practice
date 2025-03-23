@@ -29,7 +29,8 @@ Object.prototype.divide=function(){
  console.log(x.divide())//present
 //Adding properties to a  function constructor
  function Person(name) {
-    this.name = name;}
+    this.name = name;
+   }
   
  // person1.greet ="hi"  //same as person1[‘greet]=”hi”
   const person2 = new Person("Bob");

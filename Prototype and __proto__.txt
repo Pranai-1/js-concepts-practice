@@ -132,3 +132,17 @@ Methods of Prototypes:-
    - `toString()`: Returns a string representing the source code of the function.
 
 
+__proto__ (dunder proto):
+
+A property of instances (objects) that points to the prototype of their constructor.
+Exists on all objects (including constructors).
+
+Points to the prototype of the parent entity (e.g., Person.__proto__ points to Function.prototype).
+
+. prototype Property
+A property of constructor functions (like Person).
+
+Defines the blueprint for instances created with new.
+Exists only on constructor functions (functions intended to create objects with new).
+
+Contains methods/properties for instances (not the constructor itself).

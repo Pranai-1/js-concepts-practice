@@ -1,0 +1,61 @@
+function thenPromise(){
+    console.log("Then Promise")
+   let x=new Promise((res)=>res("resolved"))
+   console.log(x)
+   x.then((data)=>console.log(data))
+   console.log("finished")
+}
+
+function normal(){
+    console.log("normal")
+    let sum=0;
+    for(let i=1;i<=1000000002;i++){
+          sum+=i
+    }
+    console.log("finished Normal")
+    console.log(sum)
+}
+thenPromise()
+normal()
+
+
+
+In your example:
+```javascript
+let x = await new Promise((res, rej) => res("child promise resolved"));
+res(x);
+```
+
+### ✅ **Explanation of environments:**
+
+1. **The outer promise (`new Promise(async (res) => { ... })`)** starts synchronously inside the **JS engine** (call stack).
+   
+2. Inside this outer promise, you create a **child promise**:
+   ```js
+   await new Promise((res, rej) => res("child promise resolved"))
+   ```
+   Even though this looks like synchronous resolution (because `res()` is called immediately), **`await` always 
+   defers further execution to the microtask queue**.
+
+### ✨ **So what happens?**
+
+- The **child promise** resolves immediately in the **JS engine** (because `res("child promise resolved")` is synchronous).
+  
+- However, the `await` pauses the execution of the outer promise and **suspends it into the microtask queue**.
+ The continuation (`res(x)`) will only be placed back in the **microtask queue**.
+
+### ✅ **Environment Summary:**
+- The actual resolution of the inner **child promise** happens inside the **JS engine** (synchronously).
+- The continuation after `await` (i.e., `res(x)` in the outer promise) runs via the **microtask queue**.
+
+### 💡 **Key takeaway:**
+Even if a promise is resolved synchronously, **`await` always defers the rest of the async function to the microtask queue**. 
+The `.then()` is also queued in the **microtask queue** after the outer promise resolves.
+
+
+### 📝 **Answer:**
+In your example:
+- The **inner promise resolves inside the JS engine**.
+- The **outer promise resolves through a microtask** (because of the `await`).
+- The **`.then()` callback is also triggered via the microtask queue**.
+
