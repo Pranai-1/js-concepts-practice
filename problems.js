@@ -83,7 +83,10 @@
 
 function wait(){
     console.log("inside wait")//1st
-    setTimeout(()=>{  console.log("waited for 1 ms")},1)//4th eventhough it is 1ms
+   let x= setTimeout(()=>{  console.log("waited for 1 ms");
+    return "success"//This return has no significance because x will be timer not the returned value
+},1)//4th eventhough it is 1ms
+console.log(x)
     console.log("completed wait")//2nd
 }
 function noWait(){
@@ -92,7 +95,7 @@ function noWait(){
 }
 // wait()
 // noWait()
-//This means that after wait() function synchronous operations are finished it will be removed from the stack\
+//This means that after wait() function synchronous operations are finished it will be removed from the stack
 
 // function a(){
 //     console.log(b.y)
@@ -105,33 +108,60 @@ function noWait(){
 
 async function x(){
     console.log("before")
-    let ans=await new Promise((resolve)=>resolve(0))
+    let ans= new Promise((resolve)=>resolve(0))//This is without await
+    console.log(ans)//ans is a Promise object Promise { 0 }, not the resolved value (0).
     let ans1=await new Promise((resolve)=>setTimeout(()=>{
         resolve(20)
     },1000))
+    let ans2=await new Promise(function(resolve){
+        setTimeout(()=>{
+        resolve(20)  //no need of return 
+    },1000)
+     })
     console.log("Helloo")//This is will gets printed after inside y 
-    console.log("after"+ ans+ans1)
-    return ans+ans1
-   
+    console.log("after"+ ans+ans1+ans2)
+    return ans
+//    /since ans is a new Promise(...) that's already resolved with 0, it technically isn’t "pending"— but because x() 
+// is an async function ,it always returns a promise, and in this case that wraps your ans (which itself is a promise).
 }
 
  function y(){
     console.log("inside y")
 }
 
-console.log(x())
+ console.log(x())
 y()
-
-// /In JavaScript, return inside an arrow function or any function just exits that function and optionally returns a value.
-// In this case, you're inside a setTimeout callback.Whether or not you write return resolve(20);
-//  or just resolve(20); doesn't matter to the outer Promise, because resolve(20) does its job either way.
 
 //before
 // Promise { <pending> }
 // inside y
 // Helloo
-// after00
+// after[object Promise]2020
 
+// /In JavaScript, return inside an arrow function or any function just exits that function and optionally returns a value.
+// In this case, you're inside a setTimeout callback.Whether or not you write return resolve(20);
+//  or just resolve(20); doesn't matter to the outer Promise, because resolve(20) does its job either way.
+
+
+
+// x()
+// .then((res)=>console.log(res))
+// .catch((err)=>console.log(err))
+// .finally(()=>{console.log("Finished")})
+// y()
+// before
+// inside y
+// Helloo
+// after02020
+// 40
+// Finished
+
+
+//Observe the output with and without .then()
+//if there are setTimeout() calls inside of a function then only that portion of the call will be removed from the stack and 
+//remaining function will execute as it is
+//if there is any await call then the function execution stops at that particular point and then returns the value
+//if there is any return statement for that function
 
 
 //     async function x(){
