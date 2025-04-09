@@ -1,5 +1,5 @@
 // /console.log(iife)//error
-
+// "use strict";  //try to tell the output with and without strict
 const mod = require('./moduleExports2');
 console.log("Imported module:", mod);//way of importing this has nothing to do with module.exports file
 
@@ -75,3 +75,13 @@ console.log(this==module.exports)//here it is false because we have changed modu
 // The name iife is useful internally (e.g., for recursion), but you can’t access it outside the IIFE.
 //The first () wraps the function making it an expression.
 // The second () immediately invokes it, turning it into an IIFE (Immediately Invoked Function Expression).
+
+
+function callApplyExample(city){
+    console.log(this.name+"name "+this.age+"age "+city)
+}
+
+let callObj={
+    name:"jolly",
+    
+}

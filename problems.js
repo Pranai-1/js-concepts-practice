@@ -90,8 +90,8 @@ function noWait(){
     console.log("inside noWait")//3rd
     
 }
-wait()
-noWait()
+// wait()
+// noWait()
 //This means that after wait() function synchronous operations are finished it will be removed from the stack\
 
 // function a(){
@@ -106,8 +106,12 @@ noWait()
 async function x(){
     console.log("before")
     let ans=await new Promise((resolve)=>resolve(0))
+    let ans1=await new Promise((resolve)=>setTimeout(()=>{
+        resolve(20)
+    },1000))
     console.log("Helloo")//This is will gets printed after inside y 
-    console.log("after"+ ans)
+    console.log("after"+ ans+ans1)
+    return ans+ans1
    
 }
 
@@ -115,8 +119,18 @@ async function x(){
     console.log("inside y")
 }
 
-x()
+console.log(x())
 y()
+
+// /In JavaScript, return inside an arrow function or any function just exits that function and optionally returns a value.
+// In this case, you're inside a setTimeout callback.Whether or not you write return resolve(20);
+//  or just resolve(20); doesn't matter to the outer Promise, because resolve(20) does its job either way.
+
+//before
+// Promise { <pending> }
+// inside y
+// Helloo
+// after00
 
 
 
